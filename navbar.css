@@ -2,6 +2,10 @@ html * {
   font-family: "Raleway", "Quicksand", helvetica, sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
 .searchbar {
   width: 100%;
   font-size: 2em;
@@ -12,6 +16,7 @@ html * {
   background-color: white;
   overflow: hidden;
   width: 100%;
+  border-bottom: 1px solid #e7e2f2;
 }
 
 /* Style the links inside the navigation bar */
@@ -36,12 +41,8 @@ html * {
   color: white;
 }
 
-
-.header {
-  background:purple;
-  padding: 70px;
-  text-align: center;
-  color: gold;
-  font-size: 30px;
-  border: 20px solid black;
+ul.topnav {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

@@ -6,7 +6,6 @@ html * {
 body {
   font-family: "Raleway", "Quicksand", helvetica, sans-serif;
   font-size: 20px;
-  margin: 30px 88px 80px 88px;
   padding-bottom: 30px;
   box-sizing: border-box;
   background-color: #fcfdfd;  /* #fcfdfd #f1f3f8 #ffffe7 EBF0F6 f5f1da  22272  134510  39112*/
@@ -25,16 +24,16 @@ li.page {
 }
 
 img {
-  border-radius: 10%;
-  border: 4px solid #d6e0f0;
+  border-radius: 10px;
+  border: 1px solid #d6e0f0;
 }
 
 p.slogan {
-  padding-left: 140px;
   text-align: center;
   font: initial;
   color:#0f3057;
   font-weight: bolder;
+	font-size: 32px;
 }
 
 h2 {
@@ -57,7 +56,6 @@ ul {
 }
 
 p {
-  width: calc(100% - 250px);
   margin: 0;
 }
 .team {
@@ -138,7 +136,7 @@ margin: 100px;
 }
 
 .bottomind{
-  padding: 0 0 32px 0;
+  padding: 0 88px 32px 88px;
 }
 
 .bottomind:after{

@@ -31,6 +31,10 @@ ul li {
 	border-bottom: 2px solid #4285f4;
 }
 
+div.topnav {
+	padding: 0px;
+}
+
 /* Dropdown Button */
 .dropbtn {
   background-color: #4285f4;

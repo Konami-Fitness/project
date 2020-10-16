@@ -17,13 +17,30 @@
     <div class="searchbar">
       <input type="text" placeholder="Search.." size="50">
     </div>
-    <div class="foodinfo">
+    <div class="dropdown">
+	  <button class="dropbtn">Sort By</button>
+	  <div class="dropdown-content">
+	    <a href="#">Name</a>
+	    <a href="#">Calories</a>
+	    <a href="#">Protein</a>
+	    <a href="#">Carbs</a>
+	    <a href="#">Fat</a>
+		</div>
+	</div>
+    <div class="foodinfo" id="foodname">
       <h2>Food</h2>
       <ul>
         <li>Banana</li>
         <li>Bagel</li>
         <li>Apple</li>
         <li>Brown rice</li>
+        <li>Chicken breast</li>
+        <li>Cheese pizza slice</li>
+        <li>Tuna</li>
+        <li>Egg (scrambled)</li>
+        <li>Big Mac</li>
+        <li>Oreos</li>
+        <li>Pringles (Salt & vinegar)</li>
       </ul>
     </div>
     <div class="foodinfo">
@@ -33,16 +50,78 @@
         <li>1 bagel</li>
         <li>1 apple</li>
         <li>.5 cups</li>
+        <li>3.5 oz.</li>
+        <li>1 slice</li>
+        <li>1 can (165g)</li>
+        <li>1 small</li>
+        <li>1 burger</li>
+        <li>2 cookies</li>
+        <li>15 chips</li>
       </ul>
     </div>
-    <div class="foodinfo">
+    <div class="foodinfo" class="numbercol">
       <h2>Calories</h2>
       <ul>
-        <li>160</li>
-        <li>245</li>
-        <li>95</li>
-        <li>160</li>
+        <li>89</li>
+        <li>289</li>
+        <li>52</li>
+        <li>109</li>
+        <li>165</li>
+        <li>270</li>
+        <li>191</li>
+        <li>70</li>
+        <li>550</li>
+        <li>140</li>
+        <li>150</li>
       </ul>
+    </div>
+    <div class="foodinfo" class="numbercol">
+    	<h2>Protein (g)</h2>
+    	<ul>
+    		<li>1.1</li>
+    		<li>11</li>
+    		<li>0.3</li>
+    		<li>2.3</li>
+    		<li>31</li>
+    		<li>12</li>
+    		<li>42</li>
+    		<li>4.7</li>
+    		<li>25</li>
+    		<li><1</li>
+    		<li>1</li>
+    	</ul>
+    </div>
+    <div class="foodinfo" class="numbercol">
+    	<h2>Carbs (g)</h2>
+    	<ul>
+    		<li>22.8</li>
+    		<li>56</li>
+    		<li>13.8</li>
+    		<li>23</li>
+    		<li>0</li>
+    		<li>33</li>
+    		<li>0</li>
+    		<li>0.3</li>
+    		<li>45</li>
+    		<li>21</li>
+    		<li>16</li>
+    	</ul>
+    </div>
+    <div class="foodinfo" class="numbercol">
+    	<h2>Fat (g)</h2>
+    	<ul>
+    		<li>0.3</li>
+    		<li>2</li>
+    		<li>0.2</li>
+    		<li>0.8</li>
+    		<li>2.9</li>
+    		<li>9</li>
+    		<li>1.4</li>
+    		<li>5.6</li>
+    		<li>30</li>
+    		<li>7</li>
+    		<li>9</li>
+    	</ul>
     </div>
   </body>
   <script src="nutrition.js"></script>

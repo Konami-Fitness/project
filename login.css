@@ -25,14 +25,20 @@ ul {
   padding: 0;
 }
 
-a:link {
-	color: #4285f4;
+a {
 	text-decoration: none;
 }
 
+a:link {
+	color: #4285f4;
+}
+
+a:visited {
+	color: #4285f4;
+}
+
 a:hover {
-	color: #0070eb;
-	text-decoration: none;
+	color: #2467d6;
 }
 
 .loginbox {

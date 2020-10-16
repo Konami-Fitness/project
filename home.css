@@ -3,6 +3,10 @@ html * {
 	font-family: "Raleway", "Quicksand", helvetica, sans-serif;
 }
 
+body {
+	background-color: #fbfbfc;
+}
+
 .searchbar {
   width: 100%;
   font-size: 2em;
@@ -28,7 +32,7 @@ html * {
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: white;
-  color: #0070eb;
+  color: #2467d6;
 }
 
 /* Add a color to the active/current link */

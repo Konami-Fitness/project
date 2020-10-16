@@ -42,6 +42,7 @@
   width: 100px;
   height: 100px;
   background-color: purple;
+  display: inline-block;
 
 
 
@@ -95,5 +96,5 @@ p {
   text-align: right;
   margin-right: 300px;
   color: purple;
-  margin-top: -205px;
+  margin-top: -50px;
 }

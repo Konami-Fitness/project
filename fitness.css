@@ -15,15 +15,15 @@ body {
   height: 100px;
   text-decoration: none;
   color: white;
-  background-color: purple;
+  background-color: #4285f4;
 
 }
 
 .meal:hover {
-  background-color:  #c44dff;
+  background-color:  #2467d6;
 }
 .workout:hover {
-  background-color:  #c44dff;
+  background-color:  #2467d6;
 }
 .workout {
 	margin-top: 100px;
@@ -34,11 +34,8 @@ body {
   color: white;
   width: 100px;
   height: 100px;
-  background-color: purple;
-
-
+  background-color: #4285f4;
 }
-
 
 .calorie {
   margin-top: 100px;
@@ -49,32 +46,22 @@ body {
   color: white;
   width: 100px;
   height: 100px;
-  background-color: purple;
+  background-color: #4285f4;
   display: inline-block;
-
-
-
-
 }
-
-
 
 .calorie:hover {
-
-
-  background-color:  #c44dff;
-
-
+  background-color:  #2467d6;
 }
-.button {
+
+button {
   text-decoration: none;
   display: block;
-  background-color: #7b38d8;
-  border-radius: 10px;
-  border: 4px double #cccccc;
-  color: #eeeeee;
+  background-color: #4285f4;
+  border-radius: 5px;
+  color: white;
   text-align: center;
-  font-size: 28px;
+  font-size: 16px;
   padding: 20px;
   transition: all 0.5s;
   cursor: pointer;
@@ -102,7 +89,7 @@ p {
   font-size: 2.5em;
   text-align: right;
   margin-right: 300px;
-  color: purple;
+  color: #4285f4;
   margin-top: -50px;
 }
 

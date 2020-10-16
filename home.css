@@ -5,6 +5,7 @@ html * {
 
 body {
 	background-color: #fbfbfc;
+  background-image: url("gym.png");
 }
 
 .searchbar {

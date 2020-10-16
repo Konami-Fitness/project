@@ -1,0 +1,99 @@
+.meal {
+
+	margin-top: 100px;
+  margin-left: 100px;
+  display: block;
+  width: 100px;
+  height: 100px;
+  text-decoration: none;
+  color: white;
+  background-color: purple;
+
+}
+
+.meal:hover {
+  background-color:  #c44dff;
+}
+.workout:hover {
+  background-color:  #c44dff;
+}
+.workout {
+	margin-top: 100px;
+  display: block;
+  margin-left: 100px;
+
+  text-decoration: none;
+  color: white;
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+
+
+}
+
+
+.calorie {
+  margin-top: 100px;
+  display: block;
+  margin-left: 100px;
+
+  text-decoration: none;
+  color: white;
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+
+
+
+
+}
+
+
+
+.calorie:hover {
+
+
+  background-color:  #c44dff;
+
+
+}
+.button {
+  text-decoration: none;
+  display: block;
+  background-color: #7b38d8;
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+        
+  transition: all 0.5s;
+  cursor: pointer;
+
+}
+
+img {
+  float: right;
+  margin-top: 50px;
+  padding-right: 500px;
+}
+
+iframe {
+align-content: center;
+height:300px;
+width: 400px;
+margin-left:500px;
+margin-right: 300px;
+  margin-top: 130px;
+
+}
+
+p {
+  font-weight: bold;
+  font-size: 2.5em;
+  text-align: right;
+  margin-right: 300px;
+  color: purple;
+  margin-top: -205px;
+}

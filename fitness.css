@@ -106,3 +106,7 @@ p {
   color: purple;
   margin-top: -50px;
 }
+
+a {
+	text-decoration: none;
+}

@@ -1,12 +1,22 @@
+html * {
+  font-family: "Raleway", "Quicksand", helvetica, sans-serif;
+}
+
+.searchbar {
+  width: 100%;
+  font-size: 2em;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: white;
   overflow: hidden;
+  width: 100%;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  color: #f2f2f2;
+  color: #4285f4;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -16,27 +26,22 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: white;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: yellow;
+  background-color: #4285f4;
   color: white;
 }
 
 
 .header {
-  background:purple;
+  background:#4285f4;
   padding: 70px;
   text-align: center;
-  color: gold;
+  color: white;
   font-size: 30px;
   border: 20px solid black;
-
-
-
-
-
 }

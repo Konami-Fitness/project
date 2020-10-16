@@ -1,5 +1,9 @@
-body {
+html * {
+	box-sizing: border-box;
+	font-family: "Raleway", "Quicksand", helvetica, sans-serif;
+}
 
+body {
   font-family: "Raleway", "Quicksand", helvetica, sans-serif;
   font-size: 20px;
   margin: 30px 88px 80px 88px;

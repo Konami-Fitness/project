@@ -1,5 +1,9 @@
-.meal {
+html * {
+	box-sizing: border-box;
+	font-family: "Raleway", "Quicksand", helvetica, sans-serif;
+}
 
+.meal {
 	margin-top: 100px;
   margin-left: 100px;
   display: block;
@@ -68,7 +72,7 @@
   text-align: center;
   font-size: 28px;
   padding: 20px;
-        
+
   transition: all 0.5s;
   cursor: pointer;
 

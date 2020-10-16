@@ -13,11 +13,11 @@
     </div>
     <div class="loginbox">
       <p>Sign in with your Konami Fitness account</p>
-      <form action="/action_page.php">
+      <form action="/action_page.php" autocomplete="on">
         <label for="email">Email</label><br>
-        <input type="text" id="email" name="email"><br>
+        <input type="text" id="email" name="email" autofocus required><br>
         <label for="password">Password</label><br>
-        <input type="password" id="password" name="password"><br>
+        <input type="password" id="password" name="password" required><br>
         <input type="checkbox" id="keep" name="keep">
         <label for="keep">Keep me signed in</label><br><br>
         <input type="submit" value="Sign in"><br><br>

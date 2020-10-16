@@ -1,11 +1,13 @@
 html * {
-	box-sizing: border-box;
-	font-family: "Raleway", "Quicksand", helvetica, sans-serif;
+  box-sizing: border-box;
+  font-family: "Raleway", "Quicksand", helvetica, sans-serif;
 }
 
 body {
-	background-color: #fbfbfc;
+  background-color: #fbfbfc;
   background-image: url("gym.png");
+  background-repeat: none;
+  background-size: 1600px, 800px;
 }
 
 .searchbar {
@@ -44,10 +46,10 @@ body {
 
 
 .header {
-  background:#4285f4;
   padding: 70px;
   text-align: center;
   color: white;
+  text-shadow: 0 0 3px #0000B3, 0 0 5px #0000B3;
+
   font-size: 30px;
-  border: 20px solid black;
 }

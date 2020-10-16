@@ -6,7 +6,6 @@
     <link rel=stylesheet href="login.css"/>
   </head>
   <body>
-    <h1>Login</h1>
     <div class="topnav">
       <a href="home.html">Home</a>
       <a href="fitness.html">Fitness</a>
@@ -14,6 +13,14 @@
       <a class="active" href="login.html">Login/Sign Up</a>
       <a href="support.html">Support</a>
     </div>
+    <form action="/action_page.php">
+      <p>Sign in with your Konami Fitness account</p>
+      <label for="email">Email:</label><br>
+      <input type="text" id="email" name="email"><br>
+      <label for="password">Password:</label><br>
+      <input type="text" id="password" name="password"><br><br>
+      <input type="submit" value="Submit">
+    </form>
   </body>
   <script src="login.js"></script>
 </html>

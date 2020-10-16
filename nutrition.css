@@ -1,3 +1,7 @@
+html * {
+	font-family: "Raleway", "Quicksand", helvetica, sans-serif;
+}
+
 div {
 	display: inline-block;
 	padding: 5px;
@@ -19,12 +23,12 @@ ul {
 }
 
 ul li {
-	border-bottom: 2px solid purple;
+	border-bottom: 2px solid #4285f4;
 }
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: purple;
+  background-color: #4285f4;
   color: white;
   padding: 16px;
   font-size: 1em;
@@ -63,4 +67,4 @@ ul li {
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: yellow; color: purple;}
+.dropdown:hover .dropbtn {background-color: #4285f4; color: white;}

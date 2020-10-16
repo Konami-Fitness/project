@@ -100,10 +100,6 @@ margin: 100px;
   margin: 0;
 }
 
-/* .row {
-  padding: 0 0 32px 0;
-} */
-
 .row:after{
   content: "";
   display: block;
@@ -121,10 +117,6 @@ margin: 100px;
   list-style-type: disc;
   margin-left: 50px;
 }
-
-/* .objective {
-  padding: 0 0 32px 0;
-} */
 
 .position {
   padding-left: 30px;
@@ -145,17 +137,18 @@ margin: 100px;
   clear: both;
 }
 
+a {
+	text-decoration: none;
+}
+
 a:link {
-  color: #8d93ab;
-  text-decoration: none;
+	color: #4285f4;
 }
 
 a:visited {
-  color: #8d93ab;
-  text-decoration: none;
+	color: #4285f4;
 }
 
 a:hover {
-  color: #0f3057;
-  text-decoration: none;
+	color: #2467d6;
 }

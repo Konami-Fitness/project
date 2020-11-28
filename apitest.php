@@ -58,7 +58,7 @@ if (!isset($response['response']['data'][0])) {
       printf($row['description'] . "<br>");
       foreach($row['foodNutrients'] as $row2) {
         if($row2['nutrientName'] == 'Energy' && $row2['unitName'] == 'KCAL' ) {
-          printf( $row2['value'] . ' Calories' . '<br>');
+          printf($row2['value'] . ' Calories' . '<br>');
         }
       }
       printf("<br><br><br><br>");

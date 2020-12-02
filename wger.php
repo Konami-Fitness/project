@@ -30,12 +30,19 @@ function callAPI($method, $url, $data) {
    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
    // EXECUTE:
    $result = curl_exec($curl);
-   if(!$result){die("Connection Failure");}
+   if (!$result) {die("Connection Failure");}
    curl_close($curl);
    return $result;
 }
 
-$get_data = callAPI('GET', 'https://wger.de/api/v2/workoutlog/', false);
+$get_data = callAPI('GET', 'https://wger.de/api/v2/exercise/?limit=409', false);
+// links
+// 'https://wger.de/api/v2/daysofweek/' simple 1-7, monday... days
+// 'https://wger.de/api/v2/equipment/' 10 ids and gym eqmt names
+// 'https://wger.de/api/v2/exercise/' simple excersice information
+// 'https://wger.de/api/v2/muscle/' 15 id, name, is_front bool
+
+// 'https://wger.de/api/v2/workoutlog/'
 // printf($get_data);
 $response = json_decode($get_data, true);
 
@@ -61,9 +68,26 @@ $response = json_decode($get_data, true);
   </head>
   <body>
   <?php
-    foreach($response['results'] as $row) {
-      printf($row['id'] . "<br>" . $row['exercise'] . "<br><br><br><br><br>");
+    $ct = 0;
+    foreach($response['results'] as $exercise) {
+      if ($exercise['language'] == 2) {
+        $ct++;
+        printf($exercise['name'] . "<br>muscles:<br>");
+        foreach($exercise['muscles'] as $muscle) {
+          printf($muscle . "<br>");
+        }
+        printf("secondary muscles:<br>");
+        foreach($exercise['muscles_secondary'] as $muscle2) {
+          printf($muscle2 . "<br>");
+        }
+        printf("equipment:<br>");
+        foreach($exercise['equipment'] as $eqmt) {
+          printf($eqmt . "<br>");
+        }
+        printf("<br><br>");
+      }
     }
+    printf("count: " . $ct . "<br>");
   ?>
   </body>
 </html>

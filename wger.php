@@ -40,7 +40,7 @@ $get_data = callAPI('GET', 'https://wger.de/api/v2/exercise/?limit=409', false);
 // 'https://wger.de/api/v2/daysofweek/' simple 1-7, monday... days
 // 'https://wger.de/api/v2/equipment/' 10 ids and gym eqmt names
 // 'https://wger.de/api/v2/exercise/' simple excersice information
-// 'https://wger.de/api/v2/exercisecategory/' id, name arms back shoulders 
+// 'https://wger.de/api/v2/exercisecategory/' id, name arms back shoulders
 // 'https://wger.de/api/v2/exerciseimage/' id, image link
 
 // 'https://wger.de/api/v2/muscle/' 15 id, name, is_front bool

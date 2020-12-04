@@ -103,7 +103,7 @@
   <input type="text" name="username" placeholder="Enter username" required></br>
   <input type="text" name="password" placeholder="Enter password" required></br>
   <input type="text" name="fname" placeholder="Enter first name" required>
-  <input type="text" name="lname" placeholder="Enter last name" required>
+  <input type="text" name="lname" placeholder="Enter last name" required></br>
   <input type="number" name="age" placeholder="Age" required></br>
 
   <input type="radio" id="male" name="gender" value="male">

@@ -149,7 +149,7 @@ if(isset($_SESSION['username'])) {
   <input type="text" name="username" placeholder="Enter username" ></br>
   <input type="text" name="password" placeholder="Enter password" ></br>
   <input type="text" name="fname" placeholder="Enter first name" >
-  <input type="text" name="lname" placeholder="Enter last name" >
+  <input type="text" name="lname" placeholder="Enter last name" ></br>
   <input type="number" name="age" placeholder="Age" ></br>
 
   <input type="radio" id="male" name="gender" value="male">

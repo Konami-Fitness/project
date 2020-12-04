@@ -29,6 +29,9 @@
             $gendernum = 2;
           }
         }
+        if (!isset($_POST['gender'])) {
+          $gendernum = 2;
+        }
 
         if ( isset($_POST['heightunit'])) {
           $unit_h = $_POST['heightunit'];
@@ -41,7 +44,7 @@
         }
 
         if ( !isset($_POST['heightunit'])) {
-          $heightunit = 1;
+          $heightunit = 0;
         }
 
         if ( isset($_POST['weightunit'])) {
@@ -78,7 +81,7 @@
 
         $sql = "INSERT INTO user (username, password, firstname, 
           lastname, sex, age, weight, height, heightbin, 
-          weightbin, caloriegoal) VALUES ('".$username."','".$password.
+          weightbin, calorieplan) VALUES ('".$username."','".$password.
           "','".$fname."','".$lname."',".$gendernum.",".$age.",".$weight."
           ,".$height.",".$heightunit.",".$weightunit."
           ,".$goalnum.")"; 
@@ -110,13 +113,13 @@
   <input type="radio" id="other" name="gender" value="other">
   <label for="other">Other</form></br>
 
-  <input type="text" name="height" placeholder="Enter height">
+  <input type="text" name="height" placeholder="Enter height" required>
   <input type="radio" id="cm" name="heightunit" value="cm">
   <label for="cm">cm</label>
   <input type="radio" id="in" name="heightunit" value="in">
   <label for="in">in</label></br>
 
-  <input type="text" name="weight" placeholder="Enter weight">
+  <input type="text" name="weight" placeholder="Enter weight" required>
   <input type="radio" id="kg" name="weightunit" value="kg">
   <label for="cm">kg</label>
   <input type="radio" id="lbs" name="weightunit" value="lbs">
@@ -131,4 +134,5 @@
   <label for="maintain">Maintain weight</form></br>
 
   <input type="submit" value="Submit">
+  <a href="login.php">Login</a>
 </form>

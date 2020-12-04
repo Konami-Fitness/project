@@ -85,7 +85,6 @@ if(isset($_SESSION['username'])) {
 
 
     if ( isset($_POST['heightunit'])) {
-      echo 'CHECKPOINT 1';
       $unit_h = $_POST['heightunit'];
       if ($unit_h == 'cm') {
         $heightunit = 0;
@@ -95,7 +94,6 @@ if(isset($_SESSION['username'])) {
       }
     }
     if ( !isset($_POST['heightunit'])) {
-      echo 'CHECKPOINT 2';
       $heightunit = $_SESSION['heightunit'];
     }
 
@@ -128,13 +126,11 @@ if(isset($_SESSION['username'])) {
       $goalnum = $_SESSION['goalnum'];
     }
 
-    echo 'USERNAME TEST: ';
-    echo $username;
     $sql = "UPDATE user SET username = '".$username."', password = '".
     $password."', firstname = '".$fname."',lastname = '".$lname."', sex = 
     ".$gendernum.",age = ".$age.",weight = ".$weight.",height = ".$height.
     ", heightbin = ".$heightunit.",weightbin = ".$weightunit."
-    ,caloriegoal = ".$goalnum." WHERE userid = ".$userid;
+    ,calorieplan = ".$goalnum." WHERE userid = ".$userid;
 
       // $result = $con -> query($sql);
       if ($con->query($sql) === TRUE) {

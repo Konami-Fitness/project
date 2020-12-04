@@ -1,12 +1,13 @@
 <?php
 
+session_start();
 $servername = "localhost";
-$username = "root";
-$password = "websys7";
+$username = "user";
+$password = "itws";
 
 // Create connection
 try {
-  $dbconn = new PDO('mysql:host=localhost;dbname=konami',$username,$password);
+  $dbconn = new PDO('mysql:host=localhost;dbname=konamifitness',$username,$password);
   $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e){
   echo "Connection failed: " . $e->getMessage();
@@ -17,14 +18,55 @@ try {
 
   $err = Array();
 
+  function callAPI($method, $url, $data) {
+  $curl = curl_init();
+  switch ($method) {
+    case "POST":
+      curl_setopt($curl, CURLOPT_POST, 1);
+      if ($data) curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+      break;
+    case "PUT":
+      curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+      if ($data) curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+      break;
+    default:
+      if ($data) $url = sprintf("%s?%s", $url, http_build_query($data));
+   }
+   // OPTIONS:
+   curl_setopt($curl, CURLOPT_URL, $url);
+   curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+      'APIKEY: XYMry4e3VAgaNGLsOPTOVnJQZAtTwH2JnnNOsqAX',
+      'Content-Type: application/json',
+   ));
+   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+   curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+   // EXECUTE:
+   $result = curl_exec($curl);
+   if(!$result){die("Connection Failure");}
+   curl_close($curl);
+   return $result;
+}
 
   function search($o1,$dbconn) {
-    $sql = 'SELECT * FROM activity WHERE LOWER(description) LIKE LOWER(\'%'. $o1 . '%\') ORDER BY description';
-    $result = $dbconn->query($sql);
-    echo '<br>';
-    foreach($result as $row) {
+
+    // Replace this with the method of getting the nutrition search results
+    // $sql = 'SELECT * FROM activity WHERE LOWER(description) LIKE LOWER(\'%'. $o1 . '%\') ORDER BY description';
+    // $result = $dbconn->query($sql);
+    // echo '<br>';
+    $searchphrase = $_POST['op1'];
+
+    $searchurl = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=' . 
+    $searchphrase . '&api_key=XYMry4e3VAgaNGLsOPTOVnJQZAtTwH2JnnNOsqAX';
+
+
+    $get_data = callAPI('GET', $searchurl, false);
+    $response = json_decode($get_data, true);
+    $_SESSION['data'] = $response;
+
+
+    foreach($response['foods'] as $row) {
       echo '<div class = \'piece\'>';
-      echo '<option value =' . $row['code'] .'>';
+      echo '<option value =' . $row['fdcid'] .'>';
 
       echo $row['description'];
         echo '</option value>';
@@ -36,7 +78,7 @@ try {
   }
 
   try {
-    if (isset($_POST['workout']) && $_POST['workout'] == 'Search') {
+    if (isset($_POST['nutrition']) && $_POST['nutrition'] == 'Search') {
       $o1 = $_POST['op1'];
 
 
@@ -64,7 +106,7 @@ try {
       <br>
       <form method="post" action="workoutcopy.php" id="Search_Workout">
         <input type="text" name="op1" id="search" value="" />
-        <input type="submit" name="workout" value="Search"/>
+        <input type="submit" name="nutrition" value="Search"/>
         <br/>
       </form>
     </div>
@@ -111,6 +153,3 @@ function showCustomer(str) {
   </body>
 
 </html>
-
-
-

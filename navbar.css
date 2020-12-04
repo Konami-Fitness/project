@@ -1,4 +1,5 @@
 html * {
+  box-sizing: border-box;
   font-family: "Raleway", "Quicksand", helvetica, sans-serif;
 }
 
@@ -45,4 +46,59 @@ ul.topnav {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+/*  */
+
+/* ul.navmid {
+
+} */
+
+a.navleft {
+  padding: 14px 20px 14px 20px;
+}
+
+.navleft {
+  float: left;
+  display: inline-block;
+}
+
+.navmid {
+  margin: auto;
+  display: inline-block;
+  padding-left: 290px;
+}
+
+.navmid li{
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.navright {
+  margin-top: 3px;
+  margin-right: 20px;
+  float: right;
+  display: inline-block;
+  background-color: white;
+  border: none;
+}
+
+rect {
+  fill: #4285f4;
+}
+
+button:focus {
+  border: none;
+}
+
+button:hover {
+  border: none;
+}
+
+button {
+  border: none;
+}
+
+#rect1:hover, #rect2:hover, #rect3:hover{
+  fill: #2467d6;
 }

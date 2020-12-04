@@ -98,3 +98,7 @@ rect {
 #rect1:hover, #rect2:hover, #rect3:hover{
   fill: #2467d6;
 }
+
+#hamburger {
+  padding: 0px;
+}

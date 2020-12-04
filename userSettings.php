@@ -180,4 +180,5 @@ if(isset($_SESSION['username'])) {
   <label for="maintain">Maintain weight</form></br>
 
   <input type="submit" value="Submit">
+  <a href="logout.php">Logout</a>
 </form>

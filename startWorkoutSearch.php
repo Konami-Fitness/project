@@ -51,30 +51,29 @@ try {
 <html>
   <head>
     <title>Konami Grade Book</title>
-    <link rel=stylesheet href="styles.css"/>
+    <link rel=stylesheet href="nutrition.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
     <h1>Search for activities: </h1>
     <div id= "selection">
-  <?php
 
-echo 'Select dropdown arrow to see search results for \''. $o1 . '\'';
-
-
-
-?>
+</div>
     <div class="searchbox">
       
       <br>
-      <form method="post" action="workoutcopy.php" id="Search_Workout">
+      <form method="post" action="startWorkoutSearch.php" id="Search_Workout">
         <input type="text" name="op1" id="search" value="" />
         <input type="submit" name="workout" value="Search"/>
         <br/>
       </form>
     </div>
-
+<script type="text/javascript">  
+      // notice the quotes around the ?php tag         
+      var x="<?php echo 'Select dropdown arrow to see search results for \''. $o1 . '\''; ?>";
+        document.getElementById('selection').innerHTML = x;
+    </script>
 
       <form action=""> 
   <select name="dropdown" onchange="showCustomer(this.value)">

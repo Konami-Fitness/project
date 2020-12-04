@@ -181,4 +181,5 @@ if(isset($_SESSION['username'])) {
 
   <input type="submit" value="Submit">
   <a href="logout.php">Logout</a>
+  <a href="bmrbutton.php">Stats</a>
 </form>

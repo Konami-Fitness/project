@@ -149,10 +149,11 @@ if(isset($_SESSION['username'])) {
   <head>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="settings.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <meta charset="utf-8">
-    <title>Home Page</title>
+    <title>Settings</title>
   </head>
   <body>
     <div class="topnav">

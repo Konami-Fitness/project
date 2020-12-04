@@ -103,6 +103,7 @@
   <head>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylsheet" href="createaccount.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <meta charset="utf-8">

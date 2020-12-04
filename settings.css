@@ -41,6 +41,10 @@ a:hover {
 	color: #2467d6;
 }
 
+h1 {
+	padding-top: 40px;
+}
+
 .loginbox {
 	margin: auto;
 	width: 420px;/* 420px; */

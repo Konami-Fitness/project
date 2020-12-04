@@ -5,12 +5,12 @@ $username = "user";
 $password = "itws";
 
 // Create connection
-// try {
-//   $dbconn = new PDO('mysql:host=localhost;dbname=konamifitness',$username,$password);
-//   $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// } catch (PDOException $e) {
-//   echo "Connection failed: " . $e->getMessage();
-// }
+try {
+  $dbconn = new PDO('mysql:host=localhost;dbname=konamifitness',$username,$password);
+  $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
 
 function callAPI($method, $url, $data) {
   $curl = curl_init();
@@ -44,46 +44,46 @@ function callAPI($method, $url, $data) {
    return $result;
 }
 
+function search($o1,$dbconn) {
+  $sql = 'SELECT * FROM activity WHERE LOWER(description) LIKE LOWER(\'%'. $o1 . '%\') ORDER BY description';
+  $result = $dbconn->query($sql);
+  echo '<br>';
+  foreach($result as $row) {
+    echo '<div class = \'piece\'>';
+    echo '<option value =' . $row['code'] .'>';
 
-function addExercise($dbconn, $foodname) {
+    echo $row['description'];
+      echo '</option value>';
 
+    echo '</div class>';
+  }
+}
+
+function insertExercise($userid, $name, $pictures, $dbconn) {
+  // $userid int, $name varchar(50), $timestamp datetime, $pictures varchar(50)
+  $sql = 'INSERT INTO exercise (userid, name, pictures) VALUES(' .
+  $userid . ',' .
+  '\'' . $name . '\'' . ',' .
+  '\'' . $pictures . '\')';
+  $result = $dbconn->query($sql);
+  echo "Successfully inserted.";
 }
 
 // Use the user's input as the search part of the url
 try {
-  if (isset($_POST['op1']))  {
-    $searchphrase = rawurlencode($_POST['op1']);
-    // echo rawurlencode($_POST['op1']);
+  if (isset($_POST['xname']))  {
+    $searchphrase = rawurlencode($_POST['xname']);
+    // echo rawurlencode($_POST['xname']);
     $searchurl = 'https://wger.de/api/v2/exercise/?name=' . $searchphrase;
 
     $get_data = callAPI('GET', $searchurl, false);
     // printf($get_data);
     $response = json_decode($get_data, true);
 
-
-
-    // foreach($response['results'] as $exercise) {
-    //   if ($exercise['language'] == 2) {
-    //     printf($exercise['name'] . "<br>muscles:<br>");
-    //     foreach($exercise['muscles'] as $muscle) {
-    //       printf($muscle . "<br>");
-    //     }
-    //     printf("secondary muscles:<br>");
-    //     foreach($exercise['muscles_secondary'] as $muscle2) {
-    //       printf($muscle2 . "<br>");
-    //     }
-    //     printf("equipment:<br>");
-    //     foreach($exercise['equipment'] as $eqmt) {
-    //       printf($eqmt . "<br>");
-    //     }
-    //     printf("<br><br>");
-    //   }
-    // }
-    // if (is_array($response['results'])) printf('egg');
-    // else printf('bad egg');
     //
+    insertExercise(1, $_POST['xname'],'',$dbconn);
+
     foreach($response['results'] as $exercise) {
-    // $exercise = $response['results'];
 
       printf('<form method="post">
         <input type="submit" name="addExercise" class="button" value="' . $exercise['name'] . '">
@@ -111,14 +111,7 @@ try {
       printf('<br><br><br><br>');
     }
   }
-
-  // by name, category, muscles, secondary muscles, equipment
-  // if (isset($_POST['addExercise']))  {
-  //   addFood($dbconn, $_POST['addExercise']);
-  // }
-}
-
-catch (PDOException $e) {
+} catch (PDOException $e) {
   echo $e->getMessage();
 }
 
@@ -131,7 +124,37 @@ catch (PDOException $e) {
   <body>
     <form method="post" action="searchwger.php">
       <label for="name">Search for an exercise: </label></br>
-      <input type="text" name="op1" id="name" value="" />
+      <input type="text" name="xname" id="name" value="" />
     </form>
+
+    <!-- <form action="">
+      <select name="customers" onchange="showCustomer(this.value)">
+        <option value="">Select a customer:</option>
+        <?php
+          if(isset($o1)) {
+            search($o1,$dbconn);
+          }
+        ?>
+      </select>
+    </form>
+    <br>
+    <div id="txtHint">Customer info will be listed here...</div>
+    <script>
+      function showCustomer(str) {
+        var xhttp;
+        if (str == "") {
+          document.getElementById("txtHint").innerHTML = "";
+          return;
+        }
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("txtHint").innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", "usertoexercise.php?q="+str, true);
+        xhttp.send();
+      }
+    </script> -->
   </body>
 </html>

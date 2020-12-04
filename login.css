@@ -6,6 +6,7 @@ html * {
 body {
 	background-color: #fbfbfc;
 	font-size: 14px;
+	margin: auto;
 }
 
 label {
@@ -39,6 +40,10 @@ a:visited {
 
 a:hover {
 	color: #2467d6;
+}
+
+form {
+	padding-top: 100px;
 }
 
 .loginbox {

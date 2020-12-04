@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <link rel="stylesheet" href="settings.css">
     <link rel="stylesheet" href="navbar.css">
@@ -15,7 +15,7 @@
       <ul class="navmid">
         <li><a href="fitness.html">Fitness</a></li>
         <li><a href="nutrition.html">Nutrition</a></li>
-        <li><a href="login.html">Login/Sign Up</a></li>
+        <li><a href="createaccount.php">Login/Sign Up</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
       <button class="navright" type="button" name="button">

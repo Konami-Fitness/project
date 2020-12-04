@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$mysqli = new mysqli("localhost", "root", "websys7", "konami");
+$mysqli = new mysqli("localhost", "user", "itws", "konamifitness");
 if($mysqli->connect_error) {
   exit('Could not connect');
 } 

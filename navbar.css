@@ -95,6 +95,22 @@ rect {
   border: none;
 }
 
+rect {
+  fill: #4285f4;
+}
+
+.topnav button:focus {
+  border: none;
+}
+
+.topnav button:hover {
+  border: none;
+}
+
+.topnav button {
+  border: none;
+}
+
 #rect1:hover, #rect2:hover, #rect3:hover{
   fill: #2467d6;
 }

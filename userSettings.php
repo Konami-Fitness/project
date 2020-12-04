@@ -26,7 +26,6 @@
         </svg>
       </button>
     </div>
-    <h1>Settings</h1>
     <?php
     session_start();
     if(isset($_SESSION['username'])) {
@@ -173,6 +172,7 @@
 
     ?>
     <div class="settingsbox">
+      <p>Setting Page</p>
       <form action="userSettings.php" method="post" autocomplete="on">
         <input type="text" name="username" placeholder="Enter username" ></br>
         <input type="text" name="password" placeholder="Enter password" ></br>
@@ -181,11 +181,11 @@
         <input type="number" name="age" placeholder="Age" ></br>
 
         <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</form>
+        <label for="male">Male</label>
         <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</form>
+        <label for="female">Female</label>
         <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</form></br>
+        <label for="other">Other</label></br>
 
         <input type="text" name="height" placeholder="Enter height">
         <input type="radio" id="cm" name="heightunit" value="cm">
@@ -199,13 +199,13 @@
         <input type="radio" id="lbs" name="weightunit" value="lbs">
         <label for="in">lbs</label></br>
 
-        <p>Goal: </p>
+        <p class="goal">Fitness Goal: </p>
         <input type="radio" id="gain" name="goal" value="gain">
-        <label for="gain">Gain weight</form>
+        <label for="gain">Gain weight</label>
         <input type="radio" id="lose" name="goal" value="lose">
-        <label for="lose">Lose weight</form>
+        <label for="lose">Lose weight</label>
         <input type="radio" id="maintain" name="goal" value="maintain">
-        <label for="maintain">Maintain weight</form></br>
+        <label for="maintain">Maintain weight</label></br>
 
         <input type="submit" value="Submit">
         <a href="logout.php">Logout</a>

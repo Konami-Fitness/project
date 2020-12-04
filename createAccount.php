@@ -79,7 +79,7 @@
         }
 
 
-        $sql = "INSERT INTO user (username, password, firstname, 
+        $sql = "INSERT INTO users (username, password, firstname, 
           lastname, sex, age, weight, height, heightbin, 
           weightbin, calorieplan) VALUES ('".$username."','".$password.
           "','".$fname."','".$lname."',".$gendernum.",".$age.",".$weight."

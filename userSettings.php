@@ -126,7 +126,7 @@ if(isset($_SESSION['username'])) {
       $goalnum = $_SESSION['goalnum'];
     }
 
-    $sql = "UPDATE user SET username = '".$username."', password = '".
+    $sql = "UPDATE users SET username = '".$username."', password = '".
     $password."', firstname = '".$fname."',lastname = '".$lname."', sex = 
     ".$gendernum.",age = ".$age.",weight = ".$weight.",height = ".$height.
     ", heightbin = ".$heightunit.",weightbin = ".$weightunit."

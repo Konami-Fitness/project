@@ -17,7 +17,9 @@ body {
   background-color: white;
   overflow: hidden;
   width: 100%;
-  border-bottom: 1px solid #e7e2f2;
+  /* border-bottom: 1px solid #e7e2f2; */
+  position: fixed;
+  z-index: 9999;
 }
 
 /* Style the links inside the navigation bar */
@@ -47,12 +49,6 @@ ul.topnav {
   top: 0;
   width: 100%;
 }
-
-/*  */
-
-/* ul.navmid {
-
-} */
 
 a.navleft {
   padding: 14px 20px 14px 20px;
@@ -87,15 +83,15 @@ rect {
   fill: #4285f4;
 }
 
-button:focus {
+.topnav button:focus {
   border: none;
 }
 
-button:hover {
+.topnav button:hover {
   border: none;
 }
 
-button {
+.topnav button {
   border: none;
 }
 

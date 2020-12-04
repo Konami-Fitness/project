@@ -1,34 +1,47 @@
-body {
-  background-color: #fbfbfc;
-  background-image: url("gym.png");
-  background-repeat: none;
-  background-size: 1600px, 800px;
+h1 {
+  font-size: 50px;
+  width: 600px;
 }
 
-.searchbar {
-  width: 100%;
-  font-size: 2em;
+h2 {
+  width: 500px;
+  padding-top: 5px;
+  margin-left: 0px;
+  font-size: 30px;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: white;
-  overflow: hidden;
-  width: 100%;
+.herobutton {
+  height: 40px;
+	border: none;
+  border-radius: 4px;
+	background-color: #4285f4;
+	margin: -10px 0px 0px 168px;
+	color: white;
+  font-size: 16px;
+  padding: 0px 10px;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: white;
-  color: #2467d6;
+.herobutton:hover {
+  background-color: #2467d6;
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #4285f4;
-  color: white;
+.heroimage {
+  background: url(hpgym.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+  position: relative;
 }
 
+.herotext {
+  text-align: left;
+  position: absolute;
+  margin-top: 105px;
+  margin-left: 250px;
+  /* width: 600px; */
+  /* transform: translate(-50%, -50%); */
+  color: white;/* #4285f4 #d2e3fc;*/
+}
 
 .header {
   padding: 70px;
@@ -36,4 +49,33 @@ body {
   color: white;
   text-shadow: 0 0 3px #0000B3, 0 0 5px #0000B3;
   font-size: 30px;
+}
+
+.article {
+  margin: auto;
+  width: 80%;
+  color: #565a5c;
+}
+
+.articletxt {
+  float: left;
+}
+
+.articleimg1 {
+  float: left;
+  height: 120px;
+  width: 150px;
+  background: url(img_flwr.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.articleimg2 {
+  float: left;
+  border: 1px solid black;
+  height: 120px;
+  width: 150px;
+  background: url(img_flwr.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

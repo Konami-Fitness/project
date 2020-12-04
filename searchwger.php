@@ -6,7 +6,7 @@ $password = "itws";
 
 // Create connection
 try {
-  $dbconn = new PDO('mysql:host=localhost;dbname=konamifitness',$username,$password);
+  $dbconn = new PDO('mysql:host=localhost;dbname=konami',$username,$password);
   $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
   echo "Connection failed: " . $e->getMessage();

@@ -14,10 +14,26 @@
         $stmt->execute();
         $result = $stmt->get_result();
     	$user = $result->fetch_object();
+
+    	echo 'checkpoint 1';
     		
     	// Verify user password and set $_SESSION
-    	if ( password_verify( $_POST['password'], $user->password ) ) {
-    		$_SESSION['user_id'] = $user->userID;
+    	if ( $_POST['password'] == $user->password  ) {
+    		echo 'checkpoint 2';
+    		$_SESSION['userid'] = $user->userID;
+    		$_SESSION['password'] = $user->password;
+    		$_SESSION['username'] = $user->username;
+    		$_SESSION['fname'] = $user->firstname;
+    		$_SESSION['lname'] = $user->lastname;
+    		$_SESSION['age'] = $user->age;
+    		$_SESSION['gendernum'] = $user->sex;
+    		$_SESSION['height'] = $user->height;
+    		$_SESSION['heightunit'] = $user->heightbin;
+    		$_SESSION['weight'] = $user->weight;
+    		$_SESSION['weightunit'] = $user->weightbin;
+    		$_SESSION['goalnum'] = $user->caloriegoal;
+    		$_SESSION['bruh'] = 'yuhaye';
+    		echo 'password verify';
     	}
     }
 }
@@ -28,3 +44,4 @@
   <input type="text" name="password" placeholder="Enter password" required>
   <input type="submit" value="Submit">
 </form>
+<a href="userSettings.php">Settings</a>

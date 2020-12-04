@@ -75,17 +75,6 @@
           $goalnum = 2;
         }
 
-        echo $username;
-        echo $password;
-        echo $fname;
-        echo $lname;
-        echo $age;
-        echo $gendernum;
-        echo $height;
-        echo $heightunit;
-        echo $weight;
-        echo $weightunit;
-        echo $goalnum;
 
         $sql = "INSERT INTO user (username, password, firstname, 
           lastname, sex, age, weight, height, heightbin, 
@@ -93,7 +82,7 @@
           "','".$fname."','".$lname."',".$gendernum.",".$age.",".$weight."
           ,".$height.",".$heightunit.",".$weightunit."
           ,".$goalnum.")"; 
-          $result = $con -> query($sql);
+          // $result = $con -> query($sql);
           if ($con->query($sql) === TRUE) {
             echo "New record created successfully";
           } else {
@@ -106,6 +95,7 @@
 
 ?>
 
+<h1>Create Account</h1>
 <form action="createAccount.php" method="post">
   <input type="text" name="username" placeholder="Enter username" required></br>
   <input type="text" name="password" placeholder="Enter password" required></br>

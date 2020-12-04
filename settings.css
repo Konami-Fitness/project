@@ -8,6 +8,17 @@ body {
 	font-size: 14px;
 }
 
+.navbar {
+	margin-bottom: 16px;
+}
+
+h1 {
+	/* base padding for nav bar is 46px; */
+	margin-top: 0px;
+	padding-top:46px;
+	margin: auto;
+}
+
 label {
 	color: #9190a2;
 }
@@ -41,7 +52,7 @@ a:hover {
 	color: #2467d6;
 }
 
-.loginbox {
+.settingsbox {
 	margin: auto;
 	width: 420px;/* 420px; */
 	height: 500px; /* 595px */
@@ -95,6 +106,10 @@ input[type=submit] {
 
 #password {
 	width: 100%;
+}
+
+.navright rect {
+  fill: #2467d6;
 }
 
 /* Password: <input type="password" value="FakePSW" id="myInput"><br><br>

@@ -53,29 +53,58 @@ h2 {
 
 .article {
   margin: auto;
-  width: 80%;
+  padding: 0px 200px;
   color: #565a5c;
+  margin-top: 80px;
+}
+
+.articleright {
+  float: right;
 }
 
 .articletxt {
-  float: left;
+  width: 70%;
+  display: inline-block;
+  background-color: #fbfbfc;
+  border: 1px solid #fbfbfc;
+  padding: 20px;
+	border-radius: 10px;
 }
 
-.articleimg1 {
-  float: left;
-  height: 120px;
-  width: 150px;
-  background: url(img_flwr.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
+h3 {
+  font-size: 44px;
+  margin-top: 0px;
 }
 
-.articleimg2 {
-  float: left;
-  border: 1px solid black;
-  height: 120px;
-  width: 150px;
-  background: url(img_flwr.gif);
+p {
+  font-size: 24px;
+}
+
+.articleimg {
+  transition: transform .2s;
+  display: inline-block;
+}
+
+.articleimg:hover {
+  transform: scale(1.03);
+}
+
+.articleimg1 a {
+  height: 292px;
+  width: 250px;
+  background: url(squatrack.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  display: inline-block;
+}
+
+.articleimg2 a {
+  height: 374px;
+  width: 250px;
+  background: url(colorfood.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  margin-bottom: 40px;
+  border-radius: 5px;
 }

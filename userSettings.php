@@ -10,13 +10,13 @@ if(isset($_SESSION['username'])) {
   $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
   $userid = $_SESSION['userid'];
-  if ( ! empty( $_POST ) ) {    
+  if ( ! empty( $_POST ) ) {
     if ( $_POST['username']!='') {
       $username = $_POST['username'];
     }
     if ( $_POST['username']=='') {
       $username = $_SESSION['username'];
-    }  
+    }
 
 
     if ( $_POST['password']!='') {
@@ -24,7 +24,7 @@ if(isset($_SESSION['username'])) {
     }
     if ( $_POST['password']=='') {
       $password = $_SESSION['password'];
-    } 
+    }
 
 
     if ( $_POST['fname']!='') {
@@ -32,7 +32,7 @@ if(isset($_SESSION['username'])) {
     }
     if ( $_POST['fname']=='') {
       $fname = $_SESSION['fname'];
-    } 
+    }
 
 
     if ($_POST['lname']!='') {
@@ -49,7 +49,7 @@ if(isset($_SESSION['username'])) {
     if ( $_POST['age']=='') {
       $age = $_SESSION['age'];
     }
-    
+
 
     if ( $_POST['height']!='') {
       $height = $_POST['height'];
@@ -65,7 +65,7 @@ if(isset($_SESSION['username'])) {
     if ( $_POST['weight']=='') {
       $weight = $_SESSION['weight'];
     }
-    
+
 
     if ( isset($_POST['gender'])) {
       $gender = $_POST['gender'];
@@ -127,7 +127,7 @@ if(isset($_SESSION['username'])) {
     }
 
     $sql = "UPDATE users SET username = '".$username."', password = '".
-    $password."', firstname = '".$fname."',lastname = '".$lname."', sex = 
+    $password."', firstname = '".$fname."',lastname = '".$lname."', sex =
     ".$gendernum.",age = ".$age.",weight = ".$weight.",height = ".$height.
     ", heightbin = ".$heightunit.",weightbin = ".$weightunit."
     ,calorieplan = ".$goalnum." WHERE userid = ".$userid;
@@ -144,42 +144,51 @@ if(isset($_SESSION['username'])) {
 
 ?>
 
-<h1>Settings</h1>
-<form action="userSettings.php" method="post">
-  <input type="text" name="username" placeholder="Enter username" ></br>
-  <input type="text" name="password" placeholder="Enter password" ></br>
-  <input type="text" name="fname" placeholder="Enter first name" >
-  <input type="text" name="lname" placeholder="Enter last name" ></br>
-  <input type="number" name="age" placeholder="Age" ></br>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Settings</title>
+  </head>
+  <body>
+    <h1>Settings</h1>
+    <form action="userSettings.php" method="post">
+      <input type="text" name="username" placeholder="Enter username" ></br>
+      <input type="text" name="password" placeholder="Enter password" ></br>
+      <input type="text" name="fname" placeholder="Enter first name" >
+      <input type="text" name="lname" placeholder="Enter last name" ></br>
+      <input type="number" name="age" placeholder="Age" ></br>
 
-  <input type="radio" id="male" name="gender" value="male">
-  <label for="male">Male</form>
-  <input type="radio" id="female" name="gender" value="female">
-  <label for="female">Female</form>
-  <input type="radio" id="other" name="gender" value="other">
-  <label for="other">Other</form></br>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Male</form>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</form>
+      <input type="radio" id="other" name="gender" value="other">
+      <label for="other">Other</form></br>
 
-  <input type="text" name="height" placeholder="Enter height">
-  <input type="radio" id="cm" name="heightunit" value="cm">
-  <label for="cm">cm</label>
-  <input type="radio" id="in" name="heightunit" value="in">
-  <label for="in">in</label></br>
+      <input type="text" name="height" placeholder="Enter height">
+      <input type="radio" id="cm" name="heightunit" value="cm">
+      <label for="cm">cm</label>
+      <input type="radio" id="in" name="heightunit" value="in">
+      <label for="in">in</label></br>
 
-  <input type="text" name="weight" placeholder="Enter weight">
-  <input type="radio" id="kg" name="weightunit" value="kg">
-  <label for="cm">kg</label>
-  <input type="radio" id="lbs" name="weightunit" value="lbs">
-  <label for="in">lbs</label></br>  
+      <input type="text" name="weight" placeholder="Enter weight">
+      <input type="radio" id="kg" name="weightunit" value="kg">
+      <label for="cm">kg</label>
+      <input type="radio" id="lbs" name="weightunit" value="lbs">
+      <label for="in">lbs</label></br>
 
-  <p>Goal: </p>
-  <input type="radio" id="gain" name="goal" value="gain">
-  <label for="gain">Gain weight</form>
-  <input type="radio" id="lose" name="goal" value="lose">
-  <label for="lose">Lose weight</form>
-  <input type="radio" id="maintain" name="goal" value="maintain">
-  <label for="maintain">Maintain weight</form></br>
+      <p>Goal: </p>
+      <input type="radio" id="gain" name="goal" value="gain">
+      <label for="gain">Gain weight</form>
+      <input type="radio" id="lose" name="goal" value="lose">
+      <label for="lose">Lose weight</form>
+      <input type="radio" id="maintain" name="goal" value="maintain">
+      <label for="maintain">Maintain weight</form></br>
 
-  <input type="submit" value="Submit">
-  <a href="logout.php">Logout</a>
-  <a href="bmrbutton.php">Stats</a>
-</form>
+      <input type="submit" value="Submit">
+      <a href="logout.php">Logout</a>
+      <a href="bmrbutton.php">Stats</a>
+    </form>
+  </body>
+</html>

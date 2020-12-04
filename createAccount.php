@@ -113,8 +113,8 @@
     <div class="topnav">
       <a class="active navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
-        <li><a href="fitness.html">Fitness</a></li>
-        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="startworkoutsearch.php">Fitness</a></li>
+        <li><a href="startfoodsearch.php">Nutrition</a></li>
         <li><a href="createaccount.php">Login/Sign Up</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>

@@ -15,7 +15,6 @@
         $result = $stmt->get_result();
     	$user = $result->fetch_object();
 
-    	echo 'checkpoint 1';
     		
     	// Verify user password and set $_SESSION
     	if ( $_POST['password'] == $user->password  ) {
@@ -32,8 +31,6 @@
     		$_SESSION['weight'] = $user->weight;
     		$_SESSION['weightunit'] = $user->weightbin;
     		$_SESSION['goalnum'] = $user->caloriegoal;
-    		$_SESSION['bruh'] = 'yuhaye';
-    		echo 'password verify';
     	}
     }
 }

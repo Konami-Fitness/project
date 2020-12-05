@@ -17,8 +17,7 @@ try {
 	$age = $_SESSION['age'];
 	$gender = $_SESSION['gendernum'];
 	$calorieplan = $_SESSION['goalnum'];
-	$useri = 1;
-
+	$useri = $_SESSION['userid'];
 	$new_weight = $weight;
 	$new_height = $height;
 

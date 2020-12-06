@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-$mysqli = new mysqli("localhost", "user", "itws", "konamifitness");
+$useri = $_SESSION['userid'];
+$mysqli = new mysqli("localhost", "root", "websys7", "konami");
 if($mysqli->connect_error) {
   exit('Could not connect');
 } 
@@ -49,9 +49,14 @@ $sql3 =  'INSERT INTO nutrition(fdcid, description,brandOwner,protein,totalLipid
 } else {
 	$sql3 =  'INSERT INTO nutrition(fdcid, description,protein,totalLipid,carbs,energy,sugar,sodium) VALUES('.$fdcid.',\''.$description.'\','.$protein.','.$fat.','.$carbs.','.$calories.','.$sugar.','.$sodium. ')';
 }
-$sql2 = "INSERT INTO usertonutrition(userid, fdcid) VALUES(1,". $fdcid . ")";
+
+
+echo "INSERT INTO usertonutrition(userid, fdcid) VALUES(" . $useri . ",". $fdcid . ")";
+
+$sql2 = "INSERT INTO usertonutrition(userid, fdcid) VALUES(" . $useri . ",". $fdcid . ")";
 $stmt = $mysqli->query($sql3);
 $stmt = $mysqli->query($sql2);
+echo $fdcid;
 
 echo "Your nutrition log has been updated.";
 

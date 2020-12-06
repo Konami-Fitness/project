@@ -1,14 +1,12 @@
 <?php
 session_start();
-$useri = $_SESSION['userid'];
+$useri = 1;
 $mysqli = new mysqli("localhost", "root", "websys7", "konami");
 if($mysqli->connect_error) {
   exit('Could not connect');
 } 
 
-
-
-$fdcid = $_GET['q'];
+list($fdcid, $qty)= explode(',',$_GET['q']);
 
 
 
@@ -45,18 +43,24 @@ foreach($response['foods'] as $row) {
 
 
 if(isset($brand)) {
+		$description =  str_replace("'","\'",$description);
+	$brand =  str_replace("'","\'",$brand);
 $sql3 =  'INSERT INTO nutrition(fdcid, description,brandOwner,protein,totalLipid,carbs,energy,sugar,sodium) VALUES('.$fdcid.',\''.$description.'\',\''.$brand.'\','.$protein.','.$fat.','.$carbs.','.$calories.','.$sugar.','.$sodium. ')';
 } else {
+	$description =  str_replace("'","\'",$description);
+	$brand =  str_replace("'","\'",$brand);
 	$sql3 =  'INSERT INTO nutrition(fdcid, description,protein,totalLipid,carbs,energy,sugar,sodium) VALUES('.$fdcid.',\''.$description.'\','.$protein.','.$fat.','.$carbs.','.$calories.','.$sugar.','.$sodium. ')';
+	
+
+
 }
 
 
-echo "INSERT INTO usertonutrition(userid, fdcid) VALUES(" . $useri . ",". $fdcid . ")";
 
-$sql2 = "INSERT INTO usertonutrition(userid, fdcid) VALUES(" . $useri . ",". $fdcid . ")";
+
+$sql2 = "INSERT INTO usertonutrition(userid, fdcid, qty) VALUES(" . $useri . ",". $fdcid . "," . $qty . ")";
 $stmt = $mysqli->query($sql3);
 $stmt = $mysqli->query($sql2);
-echo $fdcid;
 
 echo "Your nutrition log has been updated.";
 

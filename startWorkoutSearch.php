@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -37,6 +38,9 @@ try {
     if (isset($_POST['workout']) && $_POST['workout'] == 'Search') {
       $o1 = $_POST['op1'];
       $o2 = $_POST['op2'];
+      if($o2 == 0) {
+        $o2 = 30;
+      }
 
 
       }
@@ -63,13 +67,14 @@ try {
       
       <br>
       <form method="post" action="startWorkoutSearch.php" id="Search_Workout">
-                <label for="duration">Duration of Activity (minutes): </label> 
-        <input type="text" name="op2" id="duration" value="" /><br>
-                        <label for="search">Activity: </label> 
+                <label for="duration">Duration of Activity (minutes): </label><br>
+        <input type="text" name="op2" id="duration" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 30; ?>" /><br><br>
+        
+        <label for="search">Activity: </label><br>
 
-        <input type="text" name="op1" id="search" value="" />
+        <input type="text" name="op1" id="search" value="<?php echo isset($_POST["op1"]) ? $_POST["op1"] : ''; ?>" />
 
-        <input type="submit" name="workout" value="Search"/>
+        <input type="submit" name="workout" value="Search"/><br>
         <br/>
       </form>
           <div id= "selection"></div>

@@ -78,6 +78,8 @@ try {
   try {
     if (isset($_POST['nutrition']) && $_POST['nutrition'] == 'Search') {
       $o1 = $_POST['op1'];
+      $o2 = $_POST['op2'];
+
 
 
       }
@@ -101,21 +103,26 @@ try {
 
    
     <h1>Search for Foods: </h1>
-<div id= "selection">
 
-</div>
 
     <div class="searchbox">
       <br>
       <form method="post" action="startFoodSearch.php" id="Search_Workout">
-        <input type="text" name="op1" id="search" value=""/>
-        <input type="submit" name="nutrition" value="Search" />
+           <label for="quantity">Quantity: </label><br>
+        <input type="text" name="op2" id="quantity" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 1; ?>" /><br><br>
+        <label for="search">Food: </label><br>
+
+        <input type="text" name="op1" id="search" value="<?php echo isset($_POST["op1"]) ? $_POST["op1"] : ''; ?>"/>
+        <input type="submit" name="nutrition" value="Search" /><br>
         <br/>
       </form>
     </div>
+    <div id= "selection">
+
+</div>
 <script type="text/javascript">  
       // notice the quotes around the ?php tag         
-      var x="<?php echo 'Select dropdown arrow to see search results for \''. $o1 . '\''; ?>";
+      var x="<?php echo 'Select dropdown arrow below to see search results for \''. $o1 . '\''; ?>";
         document.getElementById('selection').innerHTML = x;
     </script>
 
@@ -155,6 +162,7 @@ try {
 function showCustomer(str) {
 
 
+  var qty ="<?php echo $o2 ?>";
 
 
   var xhttp;  
@@ -170,7 +178,7 @@ function showCustomer(str) {
     }
   };
 
-  xhttp.open("GET", "endFoodSearch.php?q="+str, true);
+  xhttp.open("GET", "endFoodSearch.php?q="+str+","+qty, true);
   xhttp.send();
 
 }

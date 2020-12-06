@@ -1,7 +1,7 @@
 <?php
 		session_start();
 
-		$servername = "localhost";
+	$servername = "localhost";
 	$username = "root";
 	$password = "websys7";
 
@@ -70,9 +70,9 @@
 
 	$sum = 0;
 	 foreach($q as $row) {
-	      $sq2 = 'SELECT n.energy FROM nutrition n WHERE n.fdcid = ' . $row['fdcid'];
+	      $sq2 = 'SELECT (n.energy *' . $row['qty'] . ') as total FROM nutrition n WHERE n.fdcid = ' . $row['fdcid'];
 	      $q2 = $dbconn->query($sq2);
-	      $sum = $q2->fetchAll()[0]['energy'] + $sum; 
+	      $sum = $q2->fetchAll()[0]['total'] + $sum; 
 	    }  
 	    return $sum;
 	}
@@ -169,24 +169,25 @@
   	  	   checkGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan);
 
   	  	?>
+  	  	<br><br>
   	  </div>
       <form method="post" action="bmrbutton.php" id="trackingButtons">
         
-      
-	        <input type="submit" class = "button" name="button1" value="How Many Calories Does My Body Need at Rest for Maintenance?"/>
+      		
+	        <input type="submit" class = "button" name="button1" value="How Many Calories Does My Body Need at Rest for Maintenance?"/><br><br>
 	           
 	      
-	        <input type="submit" class = "button" name="button2" value="Calculate My Calorie Goal For Today"/>
+	        <input type="submit" class = "button" name="button2" value="Calculate My Calorie Goal For Today"/><br><br>
 	           
 	      
-	        <input type="submit" class = "button" name="button3" value="Progress for Calorie Goal"/>
+	        <input type="submit" class = "button" name="button3" value="Progress for Calorie Goal"/><br><br>
 	        
-	        <input type="submit" class = "button" name="button4" value="How many calories have I eaten today?"/>
+	        <input type="submit" class = "button" name="button4" value="How many calories have I eaten today?"/><br><br>
 
-	       	<input type="submit" class = "button" name="button5" value="How many calories have I burned from working out?"/>
+	       	<input type="submit" class = "button" name="button5" value="How many calories have I burned from working out?"/><br><br>
 
 	      
-	        <input type="submit" class = "button" name="button6" value="Net Calories From Workouts and Food Intake for the Day So Far (takes into consideration maintenance calories at rest)"/>
+	        <input type="submit" class = "button" name="button6" value="Net Calories From Workouts and Food Intake for the Day So Far (takes into consideration maintenance calories at rest)"/><br><br>
 
       </form>
 

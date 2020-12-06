@@ -1,9 +1,8 @@
 <?php
 session_start();
-    		$_SESSION['userid'] = 1;
 
 $useri = $_SESSION['userid'];
-
+echo $useri;
 $mysqli = new mysqli("localhost", "root", "websys7", "konami");
 if($mysqli->connect_error) {
   exit('Could not connect');

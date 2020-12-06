@@ -204,10 +204,10 @@
 	        }  else if(array_key_exists('button3', $_POST)) { 
 	        	$lengthFromCalorieGoal = calorieGoalDist($bmr,$dbconn,$useri,$new_weight,$calorieplan);
 	        	if($lengthFromCalorieGoal < 0) {
-	        		 echo 'You\'re over your calorie goal for today by ' . abs($lengthFromCalorieGoal) . ' calories.'; 
+	        		 echo 'Burning ' . abs($lengthFromCalorieGoal) . ' calories from doing any kind of physical activity should get you back down to your calorie goal!'; 
 
 	        	} else {
-	        		 echo 'You need ' . abs($lengthFromCalorieGoal) . ' calories more today to reach your goal.'; 
+	        		 echo 'You need ' . abs($lengthFromCalorieGoal) . ' calories more today to reach your goal!'; 
 
 	        	}
 	        }  else if(array_key_exists('button4', $_POST)) { 

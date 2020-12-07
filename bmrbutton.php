@@ -2,8 +2,8 @@
 		session_start();
 
 	$servername = "localhost";
-	$username = "root";
-	$password = "websys7";
+	$username = "user";
+	$password = "itws";
 
 	// Create connection
 	try {

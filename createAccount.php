@@ -2,7 +2,7 @@
   $db_host = "localhost";
   $db_user = "user";
   $db_pass = "itws";
-  $db_name = "konamifitness";
+  $db_name = "konami";
   $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
   if ( ! empty( $_POST ) ) {
@@ -115,7 +115,7 @@
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a href="createaccount.php">Login/Sign Up</a></li>
+        <li><a href="login.php">Login/Sign Up</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
       <button class="navright" type="button" name="button">

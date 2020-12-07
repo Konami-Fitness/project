@@ -3,7 +3,7 @@
 	$db_host = "localhost";
 	$db_user = "user";
 	$db_pass = "itws";
-	$db_name = "konamifitness";
+	$db_name = "konami";
 
 	if ( ! empty( $_POST ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
@@ -50,8 +50,8 @@
     <div class="topnav">
       <a class="active navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
-        <li><a href="fitness.html">Fitness</a></li>
-        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="startworkoutsearch.php">Fitness</a></li>
+        <li><a href="startfoodsearch.php">Nutrition</a></li>
         <li><a href="createaccount.php">Login/Sign Up</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
@@ -69,5 +69,6 @@
   <input type="submit" value="Submit">
 </form>
 <a href="userSettings.php">Settings</a>
+<a href="logout.php">Logout</a>
 </body>
 </html>

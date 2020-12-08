@@ -1,7 +1,7 @@
 <?php
   $db_host = "localhost";
-  $db_user = "user";
-  $db_pass = "itws";
+  $db_user = "root";
+  $db_pass = "websys7";
   $db_name = "konami";
   $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
 

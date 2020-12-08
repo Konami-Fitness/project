@@ -7,7 +7,7 @@ $password = "itws";
 
 // Create connection
 try {
-  $dbconn = new PDO('mysql:host=localhost;dbname=konamifitness',$username,$password);
+  $dbconn = new PDO('mysql:host=localhost;dbname=konami',$username,$password);
   $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e){
   echo "Connection failed: " . $e->getMessage();
@@ -78,6 +78,8 @@ try {
   try {
     if (isset($_POST['nutrition']) && $_POST['nutrition'] == 'Search') {
       $o1 = $_POST['op1'];
+      $o2 = $_POST['op2'];
+
 
 
       }
@@ -93,19 +95,18 @@ try {
 <html>
   <head>
     <title>Konami Grade Book</title>
-    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel=stylesheet href="nutrition.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
-     <div class="topnav">
+    <div class="topnav">
       <a class="active navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a href="createaccount.php">Login/Sign Up</a></li>
+        <li><a href="login.php">Login/Sign Up</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
       <button class="navright" type="button" name="button">
@@ -118,21 +119,26 @@ try {
     </div>
    
     <h1>Search for Foods: </h1>
-<div id= "selection">
 
-</div>
 
     <div class="searchbox">
       <br>
       <form method="post" action="startFoodSearch.php" id="Search_Workout">
-        <input type="text" name="op1" id="search" value=""/>
-        <input type="submit" name="nutrition" value="Search" />
+           <label for="quantity">Quantity: </label><br>
+        <input type="text" name="op2" id="quantity" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 1; ?>" /><br><br>
+        <label for="search">Food: </label><br>
+
+        <input type="text" name="op1" id="search" value="<?php echo isset($_POST["op1"]) ? $_POST["op1"] : ''; ?>"/>
+        <input type="submit" name="nutrition" value="Search" /><br>
         <br/>
       </form>
     </div>
+    <div id= "selection">
+
+</div>
 <script type="text/javascript">  
       // notice the quotes around the ?php tag         
-      var x="<?php echo 'Select dropdown arrow to see search results for \''. $o1 . '\''; ?>";
+      var x="<?php echo 'Select dropdown arrow below to see search results for \''. $o1 . '\''; ?>";
         document.getElementById('selection').innerHTML = x;
     </script>
 
@@ -172,6 +178,7 @@ try {
 function showCustomer(str) {
 
 
+  var qty ="<?php echo $o2 ?>";
 
 
   var xhttp;  
@@ -187,7 +194,7 @@ function showCustomer(str) {
     }
   };
 
-  xhttp.open("GET", "endFoodsearch.php?q="+str, true);
+  xhttp.open("GET", "endFoodSearch.php?q="+str+","+qty, true);
   xhttp.send();
 
 }

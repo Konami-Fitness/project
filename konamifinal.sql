@@ -1024,7 +1024,8 @@ CREATE TABLE `usertogrocery` (
 CREATE TABLE `usertonutrition` (
   `userid` int(11) NOT NULL,
   `fdcid` int(11) NOT NULL,
-  `time` datetime NOT NULL DEFAULT current_timestamp()
+  `time` datetime NOT NULL DEFAULT current_timestamp(),
+  `qty` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -1115,7 +1116,7 @@ ALTER TABLE `usertogrocery`
 -- Indexes for table `usertonutrition`
 --
 ALTER TABLE `usertonutrition`
-  ADD PRIMARY KEY (`userid`,`fdcid`),
+  ADD PRIMARY KEY (`userid`,`fdcid`,`time`),
   ADD KEY `fdcid` (`fdcid`);
 
 --
@@ -1129,7 +1130,7 @@ ALTER TABLE `usertoplans`
 -- Indexes for table `usertoworkout`
 --
 ALTER TABLE `usertoworkout`
-  ADD PRIMARY KEY (`userid`,`code`),
+  ADD PRIMARY KEY (`userid`,`code`,`time`),
   ADD KEY `code` (`code`);
 
 --

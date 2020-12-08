@@ -1,5 +1,9 @@
 <?php
-$mysqli = new mysqli("localhost", "user", "itws", "konamifitness");
+session_start();
+
+$useri = $_SESSION['userid'];
+echo $useri;
+$mysqli = new mysqli("localhost", "root", "websys7", "konami");
 if($mysqli->connect_error) {
   exit('Could not connect');
 } 
@@ -7,19 +11,22 @@ if($mysqli->connect_error) {
 $sql = "SELECT code, mets, category_id,description
 FROM activity WHERE code = ?";
 
+list($code_id, $duration)= explode(',',$_GET['q']);
+
+
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("s", $_GET['q']);
+$stmt->bind_param("s",$code_id);
 $stmt->execute();
 $stmt->store_result();
 $stmt->bind_result($code, $mets, $catid, $desc);
 $stmt->fetch();
 $stmt->close();
-echo "Your workout has been recorded.";
 
 
-$sql2 = "INSERT INTO usertoworkout(userid, code, duration) VALUES(1,". $code . ",30)"; 
+$sql2 = "INSERT INTO usertoworkout(userid, code, duration) VALUES(" . $useri. "," . $code . "," . $duration. ")"; 
 $stmt = $mysqli->query($sql2);
 
+echo "Your workout has been recorded.";
 
 
 ?>

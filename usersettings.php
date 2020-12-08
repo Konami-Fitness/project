@@ -320,7 +320,7 @@ session_start();
     ?>
     <div class="settingsbox">
       <p>Setting Page</p>
-      <form action="userSettings.php" method="post" autocomplete="on">
+      <form action="usersettings.php" method="post" autocomplete="on">
         <input type="text" name="username" placeholder="Enter username" ></br>
         <input type="password" name="password" placeholder="Enter password" ></br>
         <input type="text" name="fname" placeholder="Enter first name" >

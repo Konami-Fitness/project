@@ -2,8 +2,8 @@
 		session_start();
 
 	$servername = "localhost";
-	$username = "user";
-	$password = "itws";
+	$username = "root";
+	$password = "websys7";
 
 	// Create connection
 	try {
@@ -103,13 +103,15 @@
 	function calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) {
 		$maintenance = $bmr + calsLostInWorkouts($dbconn, $useri,$new_weight);
 
-		if ($calorieplan == 0) {
+		if ($calorieplan == 2) {
 			$cal = $maintenance;
 		}
-		else if ($calorieplan == 1) {
+		else if ($calorieplan == 0) {
+
 			$cal = 1.1*$maintenance;
 		}
-		else if ($calorieplan == 2) {
+		else if ($calorieplan == 1) {
+
 			$cal = $maintenance-500;
 		}
 		$sql = 'UPDATE users SET caloriegoal = '. $cal . ' WHERE userID = ' . $useri;

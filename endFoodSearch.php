@@ -20,6 +20,7 @@ $brand = NULL;
 
 $response = $_SESSION['data'];
 foreach($response['foods'] as $row) {
+
 	if ($row['fdcId'] == $fdcid) {
 		$description = $row['description'];
 		if(isset($row['brandOwner'])) {
@@ -61,7 +62,6 @@ $sql3 =  'INSERT INTO nutrition(fdcid, description,brandOwner,protein,totalLipid
 $sql2 = "INSERT INTO usertonutrition(userid, fdcid, qty) VALUES(" . $useri . ",". $fdcid . "," . $qty . ")";
 $stmt = $mysqli->query($sql3);
 $stmt = $mysqli->query($sql2);
-
 echo "Your nutrition log has been updated.";
 
 ?>

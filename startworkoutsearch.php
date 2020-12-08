@@ -2,9 +2,8 @@
 session_start();
 
 $servername = "localhost";
-$username = "user";
-$password = "itws";
-
+  $username = "root";
+  $password = "websys7";
 // Create connection
 try {
   $dbconn = new PDO('mysql:host=localhost;dbname=konami',$username,$password);
@@ -22,12 +21,13 @@ try {
   function search($o1,$dbconn) {
     $sql = 'SELECT * FROM activity WHERE LOWER(description) LIKE LOWER(\'%'. $o1 . '%\') ORDER BY description';
     $result = $dbconn->query($sql);
-    echo '<br>';
     foreach($result as $row) {
-      echo '<option value =' . $row['code'] .'>';
+      echo '<div class = \'popup\' id = ' . $row['code'] . 
+    ' onClick = showCustomer(this.id)  onmouseover=showInfo(this) onmouseout=hideInfo(this)>';
+          echo $row['description'];
 
-      echo $row['description'];
-        echo '</option value>';
+       echo '<span class= \' popuptext \' >MET: ' . $row['mets'] . '</span>';
+       echo '</div><br><br>';
 
 
     }
@@ -96,17 +96,10 @@ try {
         <input type="submit" name="workout" value="Search"/><br>
         <br/>
       </form>
-          <div id= "selection"></div>
-    </div>
-<script type="text/javascript">  
-      // notice the quotes around the ?php tag         
-      var x="<?php echo 'Select dropdown arrow below to see search results for \''. $o1 . '\''; ?>";
-        document.getElementById('selection').innerHTML = x;
-    </script>
+    </div><br><br>
 
-      <form action=""> 
-  <select name="dropdown" onchange="showCustomer(this.value)">
-    <option value="">Select a physical activity:</option>
+
+<div id="searchResults">
       <?php
 
         if(isset($o1)) {
@@ -117,8 +110,7 @@ try {
 
 
       ?>
-  </select>
-</form>
+</div>
 
 <br>
 
@@ -129,6 +121,14 @@ try {
 
 <script>
 function showCustomer(str) {
+
+
+
+    var bool ="<?php echo isset($_SESSION['userid']) ?>";
+if(bool == "") {
+  alert("Warning: You may not use this feature without creating an account or signing in.");
+} else {
+
   var dur ="<?php echo $o2 ?>";
 
   var xhttp;  
@@ -146,6 +146,26 @@ function showCustomer(str) {
   xhttp.open("GET", "EndWorkoutSearch.php?q="+str+","+dur, true);
   xhttp.send();
 }
+}
+
+function showInfo(str) {
+ var popup = str.childNodes[1];
+ //popup.classList.toggle("show");
+  popup.style.visibility = 'visible';
+
+ str.style.background = 'rgba(193, 232, 245,0.6)';
+
+
+
+
+}
+function hideInfo(str) {
+
+ var popup = str.childNodes[1];
+ popup.style.visibility = 'hidden';
+  str.style.background = '';
+}
+
 </script>
   </body>
 

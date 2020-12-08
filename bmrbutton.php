@@ -2,8 +2,8 @@
 		session_start();
 
 	$servername = "localhost";
-	$username = "root";
-	$password = "websys7";
+	$username = "user";
+	$password = "itws";
 
 	// Create connection
 	try {
@@ -148,19 +148,20 @@
 	}
 
 
-
+$progress = 65;
 ?>
-
 
 
 <!doctype html>
 <html>
   <head>
     <title>Konami Grade Book</title>
-    <link rel=stylesheet href="nutrition.css"/>
+    <!-- <link rel=stylesheet href="nutrition.css"/> -->
     <link rel="stylesheet" href="navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+
+
   </head>
   <body>
   	<div class="topnav">
@@ -224,12 +225,15 @@
 	        }  else if(array_key_exists('button3', $_POST)) { 
 	        	$lengthFromCalorieGoal = calorieGoalDist($bmr,$dbconn,$useri,$new_weight,$calorieplan);
 	        	if($lengthFromCalorieGoal < 0) {
-	        		 echo 'Burning ' . abs($lengthFromCalorieGoal) . ' calories from doing any kind of physical activity should get you back down to your calorie goal!'; 
+	        		 echo 'Burning ' . abs($lengthFromCalorieGoal) . ' calories from doing any kind of physical activity should get you back down to your calorie goal!';
+	        		 printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100); 
 
 	        	} else {
 	        		 echo 'You need ' . abs($lengthFromCalorieGoal) . ' calories more today to reach your goal!'; 
+	        		 printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100);
 
 	        	}
+
 	        }  else if(array_key_exists('button4', $_POST)) { 
 	            echo 'You\'ve eaten ' . calsGained($dbconn,$useri) . ' calories today.'; 
 	        }else if(array_key_exists('button5', $_POST)) { 
@@ -242,8 +246,6 @@
 	       ?>
 
 	</div>
-
- 
   </body>
 </html>
 

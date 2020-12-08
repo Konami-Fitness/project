@@ -51,7 +51,7 @@
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a class="active" href="createaccount.php">Login</a></li>
+        <li><a class="active" href="createaccount.php">Sign in</a></li>
         <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>

@@ -1,8 +1,3 @@
-html * {
-	box-sizing: border-box;
-	font-family: "Raleway", "Quicksand", helvetica, sans-serif;
-}
-
 body {
 	background-color: #fbfbfc;
 	font-size: 14px;
@@ -12,7 +7,14 @@ label {
 	color: #9190a2;
 }
 
+h1 {
+	padding-top: 100px;
+	margin: auto;
+	text-align: center;
+}
+
 p {
+	margin-top: 0px;
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -29,11 +31,7 @@ a {
 	text-decoration: none;
 }
 
-a:link {
-	color: #4285f4;
-}
-
-a:visited {
+a:link, a:visited {
 	color: #4285f4;
 }
 
@@ -41,15 +39,10 @@ a:hover {
 	color: #2467d6;
 }
 
-h1 {
-	padding-top: 40px;
-}
-
-.loginbox {
+.createbox {
 	margin: auto;
 	width: 420px;/* 420px; */
-	height: 500px; /* 595px */
-	margin-top: 50px;
+	height: 830px; /* 595px */
 	margin-bottom: 35px;
 	padding: 32px;
 	border: 1px solid #e7e2f2;
@@ -57,15 +50,15 @@ h1 {
 	background-color: white;
 }
 
-.left{
+.left {
   float:left;
 }
 
-.clear{
+.clear {
   clear:both;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
 	height: 40px;
   border: 1px solid #8f8fa1;
   border-radius: 3px;
@@ -84,6 +77,14 @@ input[type=submit] {
 	color: white;
 }
 
+.full {
+	width: 100%;
+}
+
+.prebubble {
+	margin-bottom: 5px;
+}
+
 #fname {
 	margin-right: 14px;
 	margin-bottom: 0px;
@@ -93,13 +94,24 @@ input[type=submit] {
 	margin-bottom: 0px;
 }
 
-#email {
-	width: 100%;
+#goal {
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
-#password {
-	width: 100%;
+#age {
+	margin-bottom: 5px;
 }
+
+#height {
+	margin-bottom: 5px;
+}
+
+#weight {
+	margin-bottom: 5px;
+}
+
+
 
 /* Password: <input type="password" value="FakePSW" id="myInput"><br><br>
 <input type="checkbox" onclick="myFunction()">Show Password

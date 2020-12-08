@@ -8,7 +8,7 @@
 	// Create connection
 	try {
 	  $dbconn = new PDO('mysql:host=localhost;dbname=konami',$username,$password);
-	  
+
 	} catch (PDOException $e){
 	  echo "Connection failed: " . $e->getMessage();
 	}
@@ -29,7 +29,7 @@
 			$new_height = 2.54 * $_SESSION['height'];
 		}
 
-	//net calories 
+	//net calories
 
 	function netCalories($gain,$loss) {
 		return $gain - $loss;
@@ -55,9 +55,9 @@
 	 foreach($q as $row) {
 	      $sq2 = 'SELECT a.mets FROM activity a WHERE a.code = ' . $row['code'];
 	      $q2 = $dbconn->query($sq2);
-	      $calsBurned = metToCalsBurned($q2->fetchAll()[0]['mets'],$row['duration'],$w); 
-	      $sum = $calsBurned + $sum; 
-	    }  
+	      $calsBurned = metToCalsBurned($q2->fetchAll()[0]['mets'],$row['duration'],$w);
+	      $sum = $calsBurned + $sum;
+	    }
 	    return $sum;
 	}
 
@@ -72,8 +72,8 @@
 	 foreach($q as $row) {
 	      $sq2 = 'SELECT (n.energy *' . $row['qty'] . ') as total FROM nutrition n WHERE n.fdcid = ' . $row['fdcid'];
 	      $q2 = $dbconn->query($sq2);
-	      $sum = $q2->fetchAll()[0]['total'] + $sum; 
-	    }  
+	      $sum = $q2->fetchAll()[0]['total'] + $sum;
+	    }
 	    return $sum;
 	}
 
@@ -122,7 +122,7 @@
 
 
 	}
-		
+
 	//length from calorie goal calculation
 	function calorieGoalDist($bmr,$dbconn,$useri,$new_weight,$calorieplan)  {
 
@@ -165,12 +165,12 @@ $progress = 65;
   </head>
   <body>
   	<div class="topnav">
-      <a class="active navleft" href="home.html">Konami Fitness</a>
+      <a class="navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a href="login.php">Login/Sign Up</a></li>
-        <li><a href="bmrbutton.php">Statistics</a></li>
+        <li><a href="login.php">Sign Up</a></li>
+        <li><a class="active" href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
       <button class="navright" type="button" name="button" onclick="window.location.href='usersettings.php'">
@@ -193,60 +193,58 @@ $progress = 65;
   	  	<br><br>
   	  </div>
       <form method="post" action="bmrbutton.php" id="trackingButtons">
-        
-      		
+
+
 	        <input type="submit" class = "button" name="button1" value="How Many Calories Does My Body Need at Rest for Maintenance?"/><br><br>
-	           
-	      
+
+
 	        <input type="submit" class = "button" name="button2" value="Calculate My Calorie Goal For Today"/><br><br>
-	           
-	      
+
+
 	        <input type="submit" class = "button" name="button3" value="Progress for Calorie Goal"/><br><br>
-	        
+
 	        <input type="submit" class = "button" name="button4" value="How many calories have I eaten today?"/><br><br>
 
 	       	<input type="submit" class = "button" name="button5" value="How many calories have I burned from working out?"/><br><br>
 
-	      
+
 	        <input type="submit" class = "button" name="button6" value="Net Calories From Workouts and Food Intake for the Day So Far (takes into consideration maintenance calories at rest)"/><br><br>
 
       </form>
 
      <div id="stats">
 
-		   <?php 
+		   <?php
 
 		    $bmr = getBMR($dbconn, $gender, $new_weight, $new_height, $age, $useri);
-	        if(array_key_exists('button1', $_POST)) { 
-	            echo 'Your body needs ' . $bmr . ' calories for maintenance at rest.'; 
-	        } 
-	      else if(array_key_exists('button2', $_POST)) { 
-	            echo 'You should aim for ' . calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) . ' calories today.'; 
-	        }  else if(array_key_exists('button3', $_POST)) { 
+	        if(array_key_exists('button1', $_POST)) {
+	            echo 'Your body needs ' . $bmr . ' calories for maintenance at rest.';
+	        }
+	      else if(array_key_exists('button2', $_POST)) {
+	            echo 'You should aim for ' . calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) . ' calories today.';
+	        }  else if(array_key_exists('button3', $_POST)) {
 	        	$lengthFromCalorieGoal = calorieGoalDist($bmr,$dbconn,$useri,$new_weight,$calorieplan);
 	        	if($lengthFromCalorieGoal < 0) {
 	        		 echo 'Burning ' . abs($lengthFromCalorieGoal) . ' calories from doing any kind of physical activity should get you back down to your calorie goal!';
-	        		 printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100); 
+	        		 printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100);
 
 	        	} else {
-	        		 echo 'You need ' . abs($lengthFromCalorieGoal) . ' calories more today to reach your goal!'; 
+	        		 echo 'You need ' . abs($lengthFromCalorieGoal) . ' calories more today to reach your goal!';
 	        		 printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100);
 
 	        	}
 
-	        }  else if(array_key_exists('button4', $_POST)) { 
-	            echo 'You\'ve eaten ' . calsGained($dbconn,$useri) . ' calories today.'; 
-	        }else if(array_key_exists('button5', $_POST)) { 
-	            echo 'You\'ve burned ' . calsLostInWorkouts($dbconn, $useri, $new_weight) . ' calories from working out today.'; 
-	        }   else if(array_key_exists('button6', $_POST)) { 
-	            echo 'Your net calories for today so far is ' . netCalories(calsGained($dbconn,$useri), calsLostInWorkouts($dbconn, $useri, $new_weight) + $bmr) . ' calories.'; 
+	        }  else if(array_key_exists('button4', $_POST)) {
+	            echo 'You\'ve eaten ' . calsGained($dbconn,$useri) . ' calories today.';
+	        }else if(array_key_exists('button5', $_POST)) {
+	            echo 'You\'ve burned ' . calsLostInWorkouts($dbconn, $useri, $new_weight) . ' calories from working out today.';
+	        }   else if(array_key_exists('button6', $_POST)) {
+	            echo 'Your net calories for today so far is ' . netCalories(calsGained($dbconn,$useri), calsLostInWorkouts($dbconn, $useri, $new_weight) + $bmr) . ' calories.';
 	         }
-	  
+
 
 	       ?>
 
 	</div>
   </body>
 </html>
-
-

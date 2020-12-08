@@ -51,7 +51,7 @@
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a class="active" href="createaccount.php">Login/Sign Up</a></li>
+        <li><a class="active" href="createaccount.php">Login</a></li>
         <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
@@ -63,17 +63,31 @@
         </svg>
       </button>
     </div>
+		<h1></h1>
 		<div class="loginbox">
 			<p>Sign in with your Konami Fitness account</p>
-			<form action="login.php" method="post">
+			<form action="login.php" target="home.html" method="post">
 				<label for="email">Username</label><br>
 			  <input type="text" name="username" placeholder="Enter username" required><br>
 				<label for="password">Password</label><br>
-			  <input type="password" name="password" placeholder="Enter password" required><br>
-			  <input type="submit" value="Submit">
+			  <input type="password" id="password" name="password" placeholder="Enter password" required><br>
+				<input type="checkbox" name="show" onclick="showPassword()">
+        <label for="show">Show password</label><br><br>
+			  <input type="submit" value="Submit" onclick="window.location.href='home.html'">
 			</form>
-			<a href="usersettings.php">Settings</a>
-			<a href="logout.php">Logout</a>
+			<ul>
+        <li><a href="createaccount.php">Create your account</a></li>
+      </ul>
 		</div>
+		<script>
+			function showPassword() {
+			  var x = document.getElementById("password");
+			  if (x.type === "password") {
+			    x.type = "text";
+			  } else {
+			    x.type = "password";
+			  }
+			}
+		</script>
 	</body>
 </html>

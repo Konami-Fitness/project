@@ -9,11 +9,19 @@ body {
 	margin: auto;
 }
 
+h1 {
+	/* base padding for nav bar is 46px; */
+	padding-top:100px;
+	margin: auto;
+	text-align: center;
+}
+
 label {
 	color: #9190a2;
 }
 
 p {
+	margin-top: 0px;
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -30,11 +38,7 @@ a {
 	text-decoration: none;
 }
 
-a:link {
-	color: #4285f4;
-}
-
-a:visited {
+a:link, a:visited {
 	color: #4285f4;
 }
 
@@ -42,17 +46,10 @@ a:hover {
 	color: #2467d6;
 }
 
-form {
-	padding-top: 100px;
-}
-
-.topnav {
-	margin-bottom: 100px;
-}
 .loginbox {
 	margin: auto;
 	width: 420px;/* 420px; */
-	height: 450px; /* 595px */
+	height: 400px; /* 595px */
 	margin-bottom: 35px;
 	padding: 32px;
 	border: 1px solid #e7e2f2;
@@ -67,6 +64,7 @@ input[type=text], input[type=password] {
 	background-color: #e8f0fe;
 	margin: 5px 0px 15px 0px ;
 	padding: 0px 18px;
+	width: 100%;
 }
 
 input[type=submit] {
@@ -77,12 +75,4 @@ input[type=submit] {
 	background-color: #4285f4;
 	margin: 5px 0px 15px 0px;
 	color: white;
-}
-
-#email {
-	width: 100%;
-}
-
-#password {
-	width: 100%;
 }

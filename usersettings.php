@@ -211,8 +211,11 @@
         <label for="maintain">Maintain weight</label></br>
 
         <input type="submit" value="Submit">
-        <a href="logout.php">Logout</a>
-        <a href="bmrbutton.php">Stats</a>
+      </form>
+    </div>
+    <div class="logoutbox">
+      <form action="logout.php">
+        <input type="submit" value="Logout">
       </form>
     </div>
   </body>

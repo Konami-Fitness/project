@@ -2,8 +2,8 @@
 
 session_start();
 $servername = "localhost";
-$username = "user";
-$password = "itws";
+  $username = "root";
+  $password = "websys7";
 
 // Create connection
 try {
@@ -64,14 +64,53 @@ try {
     $_SESSION['data'] = $response;
 
 
-    foreach($response['foods'] as $row) {
-      echo '<option value =' . $row['fdcId'] .'>';
+$calories = 0;
+$protein = 0;
+$carbs = 0;
+$fat = 0;
+$sugar = 0;
+$sodium = 0;
+$brand = NULL;
+
+
+foreach($response['foods'] as $row) {
+    echo '<div class = \'popup\' id = ' . $row['fdcId'] . 
+    ' onClick = showCustomer(this.id)  onmouseover=showInfo(this) onmouseout=hideInfo(this)>';
 
       echo $row['description'];
-        echo '</option>';
 
+    if(isset($row['brandOwner'])) {
+        $brand = $row['brandOwner'];
 
+    } 
+
+    foreach($row['foodNutrients'] as $row2) {
+    
+      if ($row2['nutrientName'] == 'Energy' && $row2['unitName'] == 'KCAL' ) { $calories = $row2['value'];}
+      if ($row2['nutrientName'] == 'Protein' && $row2['unitName'] == 'G' ) { $protein = $row2['value'];}
+      if ($row2['nutrientName'] == 'Carbohydrate, by difference' && $row2['unitName'] == 'G' ) { $carbs = $row2['value'];}
+      if ($row2['nutrientName'] == 'Total lipid (fat)' && $row2['unitName'] == 'G' ) { $fat = $row2['value'];}
+      if ($row2['nutrientName'] == 'Sugars, total including NLEA ' && $row2['unitName'] == 'G' ) { $sugar = $row2['value'];}
+      if ($row2['nutrientName'] == 'Sodium, Na' && $row2['unitName'] == 'MG' ) { $sodium = $row2['value'];}  
     }
+    if(isset($row['brandOwner'])) {
+         echo '<span class= \' popuptext \' >Brand: ' . $brand . ', '. 'Calories: ' . $calories . ' Cal,<br>' . 'Protein: ' . $protein . ' g, ' . 'Carbs: ' . $carbs . ' g,<br>'
+      . 'Total Fat: ' . $fat . ' g, ' . 'Sugar: ' . $sugar . ' g,<br>' . 'Sodium: ' . $sodium . ' mg</span>';
+    
+    } else {
+                echo '<span class= \' popuptext \' >Calories: ' . $calories . ' Cal,<br>' . 'Protein: ' . $protein . ' g, ' . 'Carbs: ' . $carbs . ' g,<br>'
+      . 'Total Fat: ' . $fat . ' g, ' . 'Sugar: ' . $sugar . ' g,<br>' . 'Sodium: ' . $sodium . ' mg</span>';
+    }
+
+
+        echo '</div><br><br>';
+
+  
+}
+
+
+
+  
 
   }
 
@@ -133,20 +172,11 @@ try {
         <input type="submit" name="nutrition" value="Search" /><br>
         <br/>
       </form>
-    </div>
-    <div id= "selection">
+    </div><br><br>
 
-</div>
-<script type="text/javascript">  
-      // notice the quotes around the ?php tag         
-      var x="<?php echo 'Select dropdown arrow below to see search results for \''. $o1 . '\''; ?>";
-        document.getElementById('selection').innerHTML = x;
-    </script>
 
-      <form action=""> 
-  <select id="drop" name="dropdown" onchange="showCustomer(this.value)">
 
-    <option id ="firstOption" value="">Select a Food:</option>
+ <div id="searchResults">
       <?php
 
         if(isset($o1)) {
@@ -160,11 +190,7 @@ try {
 
       ?>
 
-  </select>
-
-
-
-</form>
+</div>
 
 <br>
 <div id="txtHint">
@@ -178,6 +204,11 @@ try {
 
 function showCustomer(str) {
 
+
+    var bool ="<?php echo isset($_SESSION['userid']) ?>";
+if(bool == "") {
+  alert("Warning: You may not use this feature without creating an account or signing in.");
+} else {
 
   var qty ="<?php echo $o2 ?>";
 
@@ -197,8 +228,29 @@ function showCustomer(str) {
 
   xhttp.open("GET", "endFoodSearch.php?q="+str+","+qty, true);
   xhttp.send();
+}
+}
+
+function showInfo(str) {
+
+
+ var popup = str.childNodes[1];
+ //popup.classList.toggle("show");
+  popup.style.visibility = 'visible';
+
+ str.style.background = 'rgba(193, 232, 245,0.6)';
+
+
+
 
 }
+function hideInfo(str) {
+ var popup = str.childNodes[1];
+ popup.style.visibility = 'hidden';
+  str.style.background = '';
+}
+
+
 </script>
   </body>
 

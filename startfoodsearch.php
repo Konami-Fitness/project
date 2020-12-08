@@ -107,9 +107,10 @@ try {
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
         <li><a href="login.php">Login/Sign Up</a></li>
+        <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
-      <button class="navright" type="button" name="button">
+      <button class="navright" type="button" name="button" onclick="window.location.href='usersettings.php'">
         <svg viewBox="0 0 100 80" width="40" height="40">
           <rect id="rect1" width="100" height="20" rx="8"></rect>
           <rect id="rect2" y="30" width="100" height="20" rx="8"></rect>
@@ -128,7 +129,7 @@ try {
         <input type="text" name="op2" id="quantity" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 1; ?>" /><br><br>
         <label for="search">Food: </label><br>
 
-        <input type="text" name="op1" id="search" value="<?php echo isset($_POST["op1"]) ? $_POST["op1"] : ''; ?>"/>
+        <input type="text" name="op1" id="search" placeholder="Search for a food" value="<?php echo isset($_POST["op1"]) ? $_POST["op1"] : ''; ?>"/>
         <input type="submit" name="nutrition" value="Search" /><br>
         <br/>
       </form>

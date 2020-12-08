@@ -116,9 +116,10 @@
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
         <li><a href="login.php">Login/Sign Up</a></li>
+        <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
-      <button class="navright" type="button" name="button">
+      <button class="navright" type="button" name="button" onclick="window.location.href='usersettings.php'">
         <svg viewBox="0 0 100 80" width="40" height="40">
           <rect id="rect1" width="100" height="20" rx="8"></rect>
           <rect id="rect2" y="30" width="100" height="20" rx="8"></rect>
@@ -129,7 +130,7 @@
 <h1>Create Account</h1>
 <form action="createAccount.php" method="post">
   <input type="text" name="username" placeholder="Enter username" required></br>
-  <input type="text" name="password" placeholder="Enter password" required></br>
+  <input type="password" name="password" placeholder="Enter password" required></br>
   <input type="text" name="fname" placeholder="Enter first name" required>
   <input type="text" name="lname" placeholder="Enter last name" required></br>
   <input type="number" name="age" placeholder="Age" required></br>

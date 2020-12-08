@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	$db_host = "localhost";
-	$db_user = "user";
-	$db_pass = "itws";
+	$db_user = "root";
+	$db_pass = "websys7";
 	$db_name = "konami";
 
 	if ( ! empty( $_POST ) ) {

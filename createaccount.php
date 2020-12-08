@@ -128,7 +128,7 @@
       </button>
     </div>
 <h1>Create Account</h1>
-<form action="createAccount.php" method="post">
+<form action="createaccount.php" method="post">
   <input type="text" name="username" placeholder="Enter username" required></br>
   <input type="password" name="password" placeholder="Enter password" required></br>
   <input type="text" name="fname" placeholder="Enter first name" required>

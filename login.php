@@ -15,7 +15,7 @@
         $result = $stmt->get_result();
     	$user = $result->fetch_object();
 
-    		
+
     	// Verify user password and set $_SESSION
     	if ( $_POST['password'] == $user->password  ) {
     		$_SESSION['userid'] = $user->userID;
@@ -38,7 +38,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="login.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
@@ -48,11 +47,11 @@
   </head>
   <body>
     <div class="topnav">
-      <a class="active navleft" href="home.html">Konami Fitness</a>
+      <a class="navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a href="createaccount.php">Login/Sign Up</a></li>
+        <li><a class="active" href="createaccount.php">Login/Sign Up</a></li>
         <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
@@ -64,12 +63,17 @@
         </svg>
       </button>
     </div>
-<form action="login.php" method="post">
-  <input type="text" name="username" placeholder="Enter username" required>
-  <input type="password" name="password" placeholder="Enter password" required>
-  <input type="submit" value="Submit">
-</form>
-<a href="userSettings.php">Settings</a>
-<a href="logout.php">Logout</a>
-</body>
+		<div class="loginbox">
+			<p>Sign in with your Konami Fitness account</p>
+			<form action="login.php" method="post">
+				<label for="email">Username</label><br>
+			  <input type="text" name="username" placeholder="Enter username" required><br>
+				<label for="password">Password</label><br>
+			  <input type="password" name="password" placeholder="Enter password" required><br>
+			  <input type="submit" value="Submit">
+			</form>
+			<a href="usersettings.php">Settings</a>
+			<a href="logout.php">Logout</a>
+		</div>
+	</body>
 </html>

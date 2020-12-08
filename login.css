@@ -46,11 +46,13 @@ form {
 	padding-top: 100px;
 }
 
+.topnav {
+	margin-bottom: 100px;
+}
 .loginbox {
 	margin: auto;
 	width: 420px;/* 420px; */
 	height: 450px; /* 595px */
-	margin-top: 50px;
 	margin-bottom: 35px;
 	padding: 32px;
 	border: 1px solid #e7e2f2;

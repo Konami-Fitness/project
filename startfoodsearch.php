@@ -76,13 +76,17 @@ $brand = NULL;
 foreach($response['foods'] as $row) {
     echo '<div class = \'popup\' id = ' . $row['fdcId'] . 
     ' onClick = showCustomer(this.id)  onmouseover=showInfo(this) onmouseout=hideInfo(this)>';
-
-      echo $row['description'];
-
     if(isset($row['brandOwner'])) {
         $brand = $row['brandOwner'];
+              echo $row['description'] . ' - ' . $brand;
 
-    } 
+
+    } else {
+        echo $row['description'];
+
+    }
+
+
 
     foreach($row['foodNutrients'] as $row2) {
     
@@ -93,14 +97,10 @@ foreach($response['foods'] as $row) {
       if ($row2['nutrientName'] == 'Sugars, total including NLEA ' && $row2['unitName'] == 'G' ) { $sugar = $row2['value'];}
       if ($row2['nutrientName'] == 'Sodium, Na' && $row2['unitName'] == 'MG' ) { $sodium = $row2['value'];}  
     }
-    if(isset($row['brandOwner'])) {
-         echo '<span class= \' popuptext \' >Brand: ' . $brand . ', '. 'Calories: ' . $calories . ' Cal,<br>' . 'Protein: ' . $protein . ' g, ' . 'Carbs: ' . $carbs . ' g,<br>'
-      . 'Total Fat: ' . $fat . ' g, ' . 'Sugar: ' . $sugar . ' g,<br>' . 'Sodium: ' . $sodium . ' mg</span>';
-    
-    } else {
+
                 echo '<span class= \' popuptext \' >Calories: ' . $calories . ' Cal,<br>' . 'Protein: ' . $protein . ' g, ' . 'Carbs: ' . $carbs . ' g,<br>'
       . 'Total Fat: ' . $fat . ' g, ' . 'Sugar: ' . $sugar . ' g,<br>' . 'Sodium: ' . $sodium . ' mg</span>';
-    }
+    
 
 
         echo '</div><br><br>';

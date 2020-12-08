@@ -83,6 +83,7 @@ div.topnav {
 /*mike*/
 
 .popup {
+  margin-left: 50px;
   border:solid;
   border-color: white;
   color:white;
@@ -150,7 +151,7 @@ div.topnav {
 {
   height: 500px;
   width:500px; 
-  padding:50px; 
+  padding-top:150px; 
     background:#4285f4;
       overflow: auto;
       margin-left: 550px;

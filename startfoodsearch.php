@@ -55,7 +55,7 @@ try {
     // echo '<br>';
     $searchphrase = $_POST['op1'];
 
-    $searchurl = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=' .
+    $searchurl = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=' . 
     $searchphrase . '&api_key=XYMry4e3VAgaNGLsOPTOVnJQZAtTwH2JnnNOsqAX';
 
 
@@ -74,7 +74,7 @@ $brand = NULL;
 
 
 foreach($response['foods'] as $row) {
-    echo '<div class = \'popup\' id = ' . $row['fdcId'] .
+    echo '<div class = \'popup\' id = ' . $row['fdcId'] . 
     ' onClick = showCustomer(this.id)  onmouseover=showInfo(this) onmouseout=hideInfo(this)>';
     if(isset($row['brandOwner'])) {
         $brand = $row['brandOwner'];
@@ -89,28 +89,28 @@ foreach($response['foods'] as $row) {
 
 
     foreach($row['foodNutrients'] as $row2) {
-
+    
       if ($row2['nutrientName'] == 'Energy' && $row2['unitName'] == 'KCAL' ) { $calories = $row2['value'];}
       if ($row2['nutrientName'] == 'Protein' && $row2['unitName'] == 'G' ) { $protein = $row2['value'];}
       if ($row2['nutrientName'] == 'Carbohydrate, by difference' && $row2['unitName'] == 'G' ) { $carbs = $row2['value'];}
       if ($row2['nutrientName'] == 'Total lipid (fat)' && $row2['unitName'] == 'G' ) { $fat = $row2['value'];}
       if ($row2['nutrientName'] == 'Sugars, total including NLEA ' && $row2['unitName'] == 'G' ) { $sugar = $row2['value'];}
-      if ($row2['nutrientName'] == 'Sodium, Na' && $row2['unitName'] == 'MG' ) { $sodium = $row2['value'];}
+      if ($row2['nutrientName'] == 'Sodium, Na' && $row2['unitName'] == 'MG' ) { $sodium = $row2['value'];}  
     }
 
                 echo '<span class= \' popuptext \' >Calories: ' . $calories . ' Cal,<br>' . 'Protein: ' . $protein . ' g, ' . 'Carbs: ' . $carbs . ' g,<br>'
       . 'Total Fat: ' . $fat . ' g, ' . 'Sugar: ' . $sugar . ' g,<br>' . 'Sodium: ' . $sodium . ' mg</span>';
-
+    
 
 
         echo '</div><br><br>';
 
-
+  
 }
 
 
 
-
+  
 
   }
 
@@ -123,7 +123,7 @@ foreach($response['foods'] as $row) {
 
       }
 
-
+   
   }
   catch (PDOException $e) {
     echo $e->getMessage();
@@ -141,11 +141,11 @@ foreach($response['foods'] as $row) {
   </head>
   <body>
     <div class="topnav">
-      <a class="navleft" href="home.html">Konami Fitness</a>
+      <a class="active navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a class="active" href="login.php">Sign Up</a></li>
+        <li><a href="login.php">Login/Sign Up</a></li>
         <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
@@ -157,7 +157,7 @@ foreach($response['foods'] as $row) {
         </svg>
       </button>
     </div>
-
+   
     <h1>Search for Foods: </h1>
 
 
@@ -194,7 +194,7 @@ foreach($response['foods'] as $row) {
 
 <br>
 <div id="txtHint">
-
+  
 
 </div>
 <script>
@@ -213,7 +213,7 @@ if(bool == "") {
   var qty ="<?php echo $o2 ?>";
 
 
-  var xhttp;
+  var xhttp;  
 
   if (str == "") {
     document.getElementById("txtHint").innerHTML = "";

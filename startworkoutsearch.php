@@ -22,7 +22,7 @@ try {
     $sql = 'SELECT * FROM activity WHERE LOWER(description) LIKE LOWER(\'%'. $o1 . '%\') ORDER BY description';
     $result = $dbconn->query($sql);
     foreach($result as $row) {
-      echo '<div class = \'popup\' id = ' . $row['code'] . 
+      echo '<div class = \'popup\' id = ' . $row['code'] .
     ' onClick = showCustomer(this.id)  onmouseover=showInfo(this) onmouseout=hideInfo(this)>';
           echo $row['description'];
 
@@ -45,7 +45,7 @@ try {
 
       }
 
-   
+
   }
   catch (PDOException $e) {
     echo $e->getMessage();
@@ -63,11 +63,11 @@ try {
   </head>
   <body>
     <div class="topnav">
-      <a class="active navleft" href="home.html">Konami Fitness</a>
+      <a class="navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
-        <li><a href="startfoodsearch.php">Nutrition</a></li>
-        <li><a href="login.php">Login/Sign Up</a></li>
+        <li><a class="active" href="startfoodsearch.php">Nutrition</a></li>
+        <li><a href="login.php">Sign Up</a></li>
         <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
@@ -83,12 +83,12 @@ try {
     <h1>Search for activities: </h1>
 
     <div class="searchbox">
-      
+
       <br>
       <form method="post" action="startWorkoutSearch.php" id="Search_Workout">
                 <label for="duration">Duration of Activity (minutes): </label><br>
         <input type="text" name="op2" id="duration" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 30; ?>" /><br><br>
-        
+
         <label for="search">Activity: </label><br>
 
         <input type="text" name="op1" id="search" placeholder="Search for an exercise" value="<?php echo isset($_POST["op1"]) ? $_POST["op1"] : ''; ?>" />
@@ -131,7 +131,7 @@ if(bool == "") {
 
   var dur ="<?php echo $o2 ?>";
 
-  var xhttp;  
+  var xhttp;
   if (str == "") {
     document.getElementById("txtHint").innerHTML = "";
     return;
@@ -170,6 +170,3 @@ function hideInfo(str) {
   </body>
 
 </html>
-
-
-

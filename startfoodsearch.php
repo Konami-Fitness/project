@@ -2,8 +2,8 @@
 
 session_start();
 $servername = "localhost";
-  $username = "root";
-  $password = "websys7";
+  $username = "user";
+  $password = "itws";
 
 // Create connection
 try {
@@ -55,7 +55,7 @@ try {
     // echo '<br>';
     $searchphrase = $_POST['op1'];
 
-    $searchurl = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=' . 
+    $searchurl = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=' .
     $searchphrase . '&api_key=XYMry4e3VAgaNGLsOPTOVnJQZAtTwH2JnnNOsqAX';
 
 
@@ -74,7 +74,7 @@ $brand = NULL;
 
 
 foreach($response['foods'] as $row) {
-    echo '<div class = \'popup\' id = ' . $row['fdcId'] . 
+    echo '<div class = \'popup\' id = ' . $row['fdcId'] .
     ' onClick = showCustomer(this.id)  onmouseover=showInfo(this) onmouseout=hideInfo(this)>';
     if(isset($row['brandOwner'])) {
         $brand = $row['brandOwner'];
@@ -89,28 +89,28 @@ foreach($response['foods'] as $row) {
 
 
     foreach($row['foodNutrients'] as $row2) {
-    
+
       if ($row2['nutrientName'] == 'Energy' && $row2['unitName'] == 'KCAL' ) { $calories = $row2['value'];}
       if ($row2['nutrientName'] == 'Protein' && $row2['unitName'] == 'G' ) { $protein = $row2['value'];}
       if ($row2['nutrientName'] == 'Carbohydrate, by difference' && $row2['unitName'] == 'G' ) { $carbs = $row2['value'];}
       if ($row2['nutrientName'] == 'Total lipid (fat)' && $row2['unitName'] == 'G' ) { $fat = $row2['value'];}
       if ($row2['nutrientName'] == 'Sugars, total including NLEA ' && $row2['unitName'] == 'G' ) { $sugar = $row2['value'];}
-      if ($row2['nutrientName'] == 'Sodium, Na' && $row2['unitName'] == 'MG' ) { $sodium = $row2['value'];}  
+      if ($row2['nutrientName'] == 'Sodium, Na' && $row2['unitName'] == 'MG' ) { $sodium = $row2['value'];}
     }
 
                 echo '<span class= \' popuptext \' >Calories: ' . $calories . ' Cal,<br>' . 'Protein: ' . $protein . ' g, ' . 'Carbs: ' . $carbs . ' g,<br>'
       . 'Total Fat: ' . $fat . ' g, ' . 'Sugar: ' . $sugar . ' g,<br>' . 'Sodium: ' . $sodium . ' mg</span>';
-    
+
 
 
         echo '</div><br><br>';
 
-  
+
 }
 
 
 
-  
+
 
   }
 
@@ -123,7 +123,7 @@ foreach($response['foods'] as $row) {
 
       }
 
-   
+
   }
   catch (PDOException $e) {
     echo $e->getMessage();
@@ -157,13 +157,13 @@ foreach($response['foods'] as $row) {
         </svg>
       </button>
     </div>
-   
+
     <h1>Search for Foods: </h1>
 
 
     <div class="searchbox">
       <br>
-      <form method="post" action="startFoodSearch.php" id="Search_Workout">
+      <form method="post" action="startfoodsearch.php" id="Search_Workout">
            <label for="quantity">Quantity: </label><br>
         <input type="text" name="op2" id="quantity" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 1; ?>" /><br><br>
         <label for="search">Food: </label><br>
@@ -194,7 +194,7 @@ foreach($response['foods'] as $row) {
 
 <br>
 <div id="txtHint">
-  
+
 
 </div>
 <script>
@@ -213,7 +213,7 @@ if(bool == "") {
   var qty ="<?php echo $o2 ?>";
 
 
-  var xhttp;  
+  var xhttp;
 
   if (str == "") {
     document.getElementById("txtHint").innerHTML = "";

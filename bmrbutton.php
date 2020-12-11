@@ -8,7 +8,7 @@
 	// Create connection
 	try {
 	  $dbconn = new PDO('mysql:host=localhost;dbname=konami',$username,$password);
-	  
+
 	} catch (PDOException $e){
 	  echo "Connection failed: " . $e->getMessage();
 	}
@@ -29,7 +29,7 @@
 			$new_height = 2.54 * $_SESSION['height'];
 		}
 
-	//net calories 
+	//net calories
 
 	function netCalories($gain,$loss) {
 		return $gain - $loss;
@@ -55,9 +55,9 @@
 	 foreach($q as $row) {
 	      $sq2 = 'SELECT a.mets FROM activity a WHERE a.code = ' . $row['code'];
 	      $q2 = $dbconn->query($sq2);
-	      $calsBurned = metToCalsBurned($q2->fetchAll()[0]['mets'],$row['duration'],$w); 
-	      $sum = $calsBurned + $sum; 
-	    }  
+	      $calsBurned = metToCalsBurned($q2->fetchAll()[0]['mets'],$row['duration'],$w);
+	      $sum = $calsBurned + $sum;
+	    }
 	    return $sum;
 	}
 
@@ -72,8 +72,8 @@
 	 foreach($q as $row) {
 	      $sq2 = 'SELECT (n.energy *' . $row['qty'] . ') as total FROM nutrition n WHERE n.fdcid = ' . $row['fdcid'];
 	      $q2 = $dbconn->query($sq2);
-	      $sum = $q2->fetchAll()[0]['total'] + $sum; 
-	    }  
+	      $sum = $q2->fetchAll()[0]['total'] + $sum;
+	    }
 	    return $sum;
 	}
 
@@ -122,7 +122,7 @@
 
 
 	}
-		
+
 	//length from calorie goal calculation
 	function calorieGoalDist($bmr,$dbconn,$useri,$new_weight,$calorieplan)  {
 
@@ -179,15 +179,10 @@ $progress = 65;
 <html>
   <head>
     <title>Konami Grade Book</title>
-    <!-- <link rel=stylesheet href="nutrition.css"/> -->
     <link rel="stylesheet" href="navbar.css">
         <link rel="stylesheet" href="stats.css">
-
-    <!-- <link rel="stylesheet" href="bmr.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
-
-
   </head>
   <body>
   	<div class="topnav">
@@ -207,85 +202,63 @@ $progress = 65;
         </svg>
       </button>
     </div>
-  	<h1> Tracking Dashboard </h1>
 
-  	  <div id="congratsMsg">
-  	  	<?php
-  	  			    $bmr = getBMR($dbconn, $gender, $new_weight, $new_height, $age, $useri);
-
-  	  	   checkGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan);
-
-  	  	?>
-  	  	<br><br>
-  	  </div>
-
-  	  <div id="stats">
-
-		   <?php 
-
-		    $bmr = getBMR($dbconn, $gender, $new_weight, $new_height, $age, $useri);
-	        if(array_key_exists('button1', $_POST)) { 
-	            echo 'Your body needs ' . $bmr . ' calories for maintenance at rest.'; 
-	        } 
-	      else if(array_key_exists('button2', $_POST)) { 
-	            echo 'You should aim for ' . calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) . ' calories today.'; 
-	        }  else if(array_key_exists('button3', $_POST)) { 
+  	<h1>Tracking Dashboard</h1>
+		<div class="statbox">
+		  <div id="congratsMsg">
+		  	<?php
+		  		$bmr = getBMR($dbconn, $gender, $new_weight, $new_height, $age, $useri);
+		  	  checkGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan);
+		  	?>
+		  	<br><br>
+		  </div>
+		  <div id="stats">
+		    <?php
+			    $bmr = getBMR($dbconn, $gender, $new_weight, $new_height, $age, $useri);
+	        if(array_key_exists('button1', $_POST)) {
+	        	echo 'Your body needs ' . $bmr . ' calories for maintenance at rest.';
+	        } else if(array_key_exists('button2', $_POST)) {
+	          echo 'You should aim for ' . calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) . ' calories today.';
+	        } else if(array_key_exists('button3', $_POST)) {
 	        	$lengthFromCalorieGoal = calorieGoalDist($bmr,$dbconn,$useri,$new_weight,$calorieplan);
 	        	if($lengthFromCalorieGoal < 0) {
-	        		 echo 'Burning ' . abs($lengthFromCalorieGoal) . ' calories from doing any kind of physical activity should get you back down to your calorie goal!';
-	        		 printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100); 
-
+	        		echo 'Burning ' . abs($lengthFromCalorieGoal) . ' calories from doing any kind of physical activity should get you back down to your calorie goal!';
+	        		printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100);
 	        	} else {
-	        		 echo 'You need ' . abs($lengthFromCalorieGoal) . ' calories more today to reach your goal!'; 
+	        		 echo 'You need ' . abs($lengthFromCalorieGoal) . ' calories more today to reach your goal!';
 	        		 printf(' You are currently at %d %% of your calorie goal', ((calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) -  $lengthFromCalorieGoal)/(calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan))) * 100);
-
 	        	}
+	        } else if(array_key_exists('button4', $_POST)) {
+	          echo 'You\'ve eaten ' . calsGained($dbconn,$useri) . ' calories today.';
+	        } else if(array_key_exists('button5', $_POST)) {
+	          echo 'You\'ve burned ' . calsLostInWorkouts($dbconn, $useri, $new_weight) . ' calories from working out today.';
+	        } else if(array_key_exists('button6', $_POST)) {
+	          echo 'Your net calories for today so far is ' . netCalories(calsGained($dbconn,$useri), calsLostInWorkouts($dbconn, $useri, $new_weight) + $bmr) . ' calories.';
+	        }
+	      ?>
+			</div>
+			<br>
 
-	        }  else if(array_key_exists('button4', $_POST)) { 
-	            echo 'You\'ve eaten ' . calsGained($dbconn,$useri) . ' calories today.'; 
-	        }else if(array_key_exists('button5', $_POST)) { 
-	            echo 'You\'ve burned ' . calsLostInWorkouts($dbconn, $useri, $new_weight) . ' calories from working out today.'; 
-	        }   else if(array_key_exists('button6', $_POST)) { 
-	            echo 'Your net calories for today so far is ' . netCalories(calsGained($dbconn,$useri), calsLostInWorkouts($dbconn, $useri, $new_weight) + $bmr) . ' calories.'; 
-	         }
-	  
-
-	       ?>
-	   
-	</div>
-	<br>
-
-	<div id = "macroNeeds">
-		<li>Your Macro Requirements: </li>
-		<li>Protein: <?php echo round(totalProteins($dbconn,$new_weight),2) . " g"   ?></li>
-		<li>Carbs: <?php echo round(totalCarbs($bmr,$dbconn,$useri,$new_weight,$calorieplan),2) . " g"   ?></li>
-		<li>Total Fats: <?php echo round(totalFats($bmr,$dbconn,$useri,$new_weight,$calorieplan,$age),2) . " g"   ?></li>
-	</div>
-	<br><br><br>
-
-      <form method="post" action="bmrbutton.php" id="trackingButtons">
-        
-      		<div class="leftbuttons">
-	        <input type="submit" class = "button" name="button1" value="How Many Calories Does My Body Need at Rest for Maintenance?"/><br><br>
-	           
-	      
-	        <input type="submit" class = "button" name="button2" value="Calculate My Calorie Goal For Today"/><br><br>
-	           
-	      
-	        <input type="submit" class = "button" name="button3" value="Progress for Calorie Goal"/><br><br>
+			<div id = "macroNeeds">
+				<li>Your Macro Requirements: </li>
+				<li>Protein: <?php echo round(totalProteins($dbconn,$new_weight),2) . " g"   ?></li>
+				<li>Carbs: <?php echo round(totalCarbs($bmr,$dbconn,$useri,$new_weight,$calorieplan),2) . " g"   ?></li>
+				<li>Total Fats: <?php echo round(totalFats($bmr,$dbconn,$useri,$new_weight,$calorieplan,$age),2) . " g"   ?></li>
+			</div>
+			<br><br><br>
+	    <form method="post" action="bmrbutton.php" id="trackingButtons">
+	  		<div class="buttontop">
+	        <input type="submit" class="button" name="button1" value="How Many Calories Does My Body Need at Rest for Maintenance?"/>
+	        <input type="submit" class="button" name="button2" value="Calculate My Calorie Goal For Today"/>
+	        <input type="submit" class="button" name="button3" value="Progress for Calorie Goal"/>
 	    	</div>
-	        
-	        <div class="rightbuttons">
-	        <input type="submit" class = "button" name="button4" value="How many calories have I eaten today?"/><br><br>
-
-	       	<input type="submit" class = "button" name="button5" value="How many calories have I burned from working out?"/><br><br>
-
-	      
-	        <input type="submit" class = "button" name="button6" value="Net Calories From Workouts and Food Intake for the Day So Far (takes into consideration maintenance calories at rest)"/><br><br>
+				<div class="clear"></div>
+	      <div class="buttonbot">
+	        <input type="submit" class="button" name="button4" value="How many calories have I eaten today?"/>
+	       	<input type="submit" class="button" name="button5" value="How many calories have I burned from working out?"/>
+	        <input type="submit" class="button" name="button6" value="Current Net Calories From Workouts and Food Intake (includes maintenance calories at rest)"/>
 	    	</div>
-
-      </form>
-
-     
+	    </form>
+		</div>
   </body>
 </html>

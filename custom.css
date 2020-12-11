@@ -1,0 +1,80 @@
+body {
+	background-color: #fbfbfc;
+	font-size: 16px;
+}
+
+h1 {
+	padding-top: 100px;
+	margin: 0px;
+	text-align: center;
+}
+
+label {
+	color: #9190a2;
+}
+
+ul {
+	text-align: center;
+	color: #9190a2;
+	list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: #4285f4;
+}
+
+a:visited {
+	color: #4285f4;
+}
+
+a:hover {
+	color: #2467d6;
+}
+
+.statbox {
+	margin: auto;
+	width: 900px;/* 420px; */
+	height: 680px; /* 595px */
+	margin-top: 50px;
+	margin-bottom: 35px;
+	padding: 80px;
+	border: 1px solid #e7e2f2;
+	border-radius: 5px;
+	background-color: white;
+}
+
+.clear{
+  clear:both;
+}
+
+.button {
+	float: left;
+	width: 200px;
+	padding: 10px;
+	white-space: normal;
+	font-size: 14px;
+}
+
+input[name="button2"], input[name="button5"] {
+	margin-left: 69px;
+}
+
+input[name="button3"], input[name="button6"] {
+	float: right;
+}
+
+input[type=submit] {
+	height: 150px;
+	border: none;
+  border-radius: 10px;
+	background-color: #4285f4;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	color: white;
+}

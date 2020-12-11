@@ -186,12 +186,12 @@ $progress = 65;
   </head>
   <body>
   	<div class="topnav">
-      <a class="active navleft" href="home.html">Konami Fitness</a>
+      <a class="navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
         <li><a href="startfoodsearch.php">Nutrition</a></li>
         <li><a href="login.php">Login/Sign Up</a></li>
-        <li><a href="bmrbutton.php">Statistics</a></li>
+        <li><a class="active" href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
       </ul>
       <button class="navright" type="button" name="button" onclick="window.location.href='usersettings.php'">

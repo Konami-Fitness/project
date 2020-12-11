@@ -141,10 +141,10 @@ foreach($response['foods'] as $row) {
   </head>
   <body>
     <div class="topnav">
-      <a class="active navleft" href="home.html">Konami Fitness</a>
+      <a class="navleft" href="home.html">Konami Fitness</a>
       <ul class="navmid">
         <li><a href="startworkoutsearch.php">Fitness</a></li>
-        <li><a href="startfoodsearch.php">Nutrition</a></li>
+        <li><a class="active" href="startfoodsearch.php">Nutrition</a></li>
         <li><a href="login.php">Login/Sign Up</a></li>
         <li><a href="bmrbutton.php">Statistics</a></li>
         <li><a href="support.html">About Us</a></li>
@@ -164,7 +164,7 @@ foreach($response['foods'] as $row) {
     <div class="searchbox">
       <br>
       <form method="post" action="startfoodsearch.php" id="Search_Workout">
-           <label for="quantity">Quantity: </label><br>
+        <label for="quantity">Quantity: </label><br>
         <input type="text" name="op2" id="quantity" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 1; ?>" /><br><br>
         <label for="search">Food: </label><br>
 

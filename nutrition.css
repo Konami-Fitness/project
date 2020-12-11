@@ -1,17 +1,16 @@
-html * {
-	box-sizing: border-box;
-	font-family: "Raleway", "Quicksand", helvetica, sans-serif;
-}
-
 body {
 	background-color: #fbfbfc;
 }
 
-div {
+h1 {
+	text-align: center;
+}
+
+/* div {
 	display: inline-block;
 	padding: 5px;
 	position: relative;
-}
+} */
 
 .numbercol {
 	width: 60px;
@@ -137,7 +136,7 @@ div.topnav {
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
+  from {opacity: 0;}
   to {opacity: 1;}
 }
 /*mike*/
@@ -150,8 +149,8 @@ div.topnav {
 #searchResults
 {
   height: 500px;
-  width:500px; 
-  padding-top:150px; 
+  width:500px;
+  padding-top:150px;
     background:#4285f4;
       overflow: auto;
       margin-left: 550px;

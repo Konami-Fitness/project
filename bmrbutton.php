@@ -147,6 +147,29 @@
 
 	}
 
+	function totalFats($bmr,$dbconn,$useri,$new_weight,$calorieplan,$age) {
+		if($age < 4) {
+			return (.35 * calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan)) /9;
+		} else if($age >= 4 && $age <= 18) {
+			return (.30 * calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan)) /9;
+		} else if($age >= 19) {
+			return (.28 * calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan)) / 9;
+		}
+
+
+	}
+
+
+	function totalCarbs($bmr,$dbconn,$useri,$new_weight,$calorieplan) {
+		return calorieGoal($bmr,$dbconn,$useri,$new_weight,$calorieplan) / 8;
+
+	}
+
+	function totalProteins($dbconn,$new_weight) {
+		return .8 * $new_weight;
+
+	}
+
 
 $progress = 65;
 ?>
@@ -158,6 +181,8 @@ $progress = 65;
     <title>Konami Grade Book</title>
     <!-- <link rel=stylesheet href="nutrition.css"/> -->
     <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="stats.css">
+
     <!-- <link rel="stylesheet" href="bmr.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
@@ -228,6 +253,15 @@ $progress = 65;
 	       ?>
 	   
 	</div>
+	<br>
+
+	<div id = "macroNeeds">
+		<li>Your Macro Requirements: </li>
+		<li>Protein: <?php echo round(totalProteins($dbconn,$new_weight),2) . " g"   ?></li>
+		<li>Carbs: <?php echo round(totalCarbs($bmr,$dbconn,$useri,$new_weight,$calorieplan),2) . " g"   ?></li>
+		<li>Total Fats: <?php echo round(totalFats($bmr,$dbconn,$useri,$new_weight,$calorieplan,$age),2) . " g"   ?></li>
+	</div>
+	<br><br><br>
 
       <form method="post" action="bmrbutton.php" id="trackingButtons">
         
@@ -255,5 +289,3 @@ $progress = 65;
      
   </body>
 </html>
-
-

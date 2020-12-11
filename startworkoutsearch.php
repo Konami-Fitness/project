@@ -86,7 +86,7 @@ try {
 
       <br>
       <form method="post" action="startworkoutsearch.php" id="Search_Workout">
-                <label for="duration">Duration of Activity (minutes): </label><br>
+        <label for="duration">Duration of Activity (minutes): </label><br>
         <input type="text" name="op2" id="duration" value="<?php echo isset($_POST["op2"]) ? $_POST["op2"] : 30; ?>" /><br><br>
 
         <label for="search">Activity: </label><br>
@@ -95,6 +95,9 @@ try {
 
         <input type="submit" name="workout" value="Search"/><br>
         <br/>
+      </form>
+      <form method="post" action="customworkout.php" id="inscustomworkout">
+        <input type="submit" name="customworkout" value="Insert custom workout"/>
       </form>
     </div><br><br>
 

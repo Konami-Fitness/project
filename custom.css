@@ -37,44 +37,34 @@ a:hover {
 	color: #2467d6;
 }
 
-.statbox {
+.custombox {
 	margin: auto;
-	width: 900px;/* 420px; */
-	height: 680px; /* 595px */
+	width: 402px;/* 420px; */
+	height: 410px; /* 595px */
 	margin-top: 50px;
 	margin-bottom: 35px;
-	padding: 80px;
+	padding: 32px;
 	border: 1px solid #e7e2f2;
 	border-radius: 5px;
 	background-color: white;
 }
 
-.clear{
-  clear:both;
-}
-
-.button {
-	float: left;
-	width: 200px;
-	padding: 10px;
-	white-space: normal;
-	font-size: 14px;
-}
-
-input[name="button2"], input[name="button5"] {
-	margin-left: 69px;
-}
-
-input[name="button3"], input[name="button6"] {
-	float: right;
+input[type=text], input[type=number] {
+	height: 40px;
+  border: 1px solid #8f8fa1;
+  border-radius: 3px;
+	background-color: #e8f0fe;
+	margin: 5px 0px 15px 0px ;
+	padding: 0px 18px;
+	width: 100%;
 }
 
 input[type=submit] {
-	height: 150px;
+	height: 40px;
+	width: 100%;
 	border: none;
-  border-radius: 10px;
+  border-radius: 4px;
 	background-color: #4285f4;
-	margin-top: 5px;
-	margin-bottom: 15px;
+	margin: 5px 0px 15px 0px;
 	color: white;
 }

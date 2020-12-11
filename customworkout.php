@@ -7,8 +7,8 @@ session_start();
   <head>
     <title>Konami Grade Book</title>
     <link rel="stylesheet" href="navbar.css">
-    <link rel=stylesheet href="nutrition.css"/>
-    <link rel="styleshet" href="custom.css"/>
+    <link rel="stylesheet" href="nutrition.css">
+    <link rel="stylesheet" href="custom.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
   </head>
@@ -31,15 +31,17 @@ session_start();
       </button>
     </div>
 
-    <h1>Enter custom workout: </h1>
-    <form action="post" action="customworkout2.php" id="workoutinput">
-    	<label for="workoutname">Workout name: </label><br>
-        <input type="text" name="op1" id="workoutname" value="" /><br><br>
-        <label for="duration">Duration (in minutes): </label><br>
-        <input type="text" name="op3" id="duration" value="" /><br><br>
-        <label for="metvalue">MET value: </label><br>
-        <input type="text" name="op2" id="metvalue" value="" /><br><br>
-        <input type="submit" name="custworkout" value="Submit"/>
-    </form>
+    <h1>Enter custom workout </h1>
+    <div class="custombox">
+      <form action="post" action="customworkout2.php" id="workoutinput">
+        <label for="workoutname">Workout name</label><br>
+          <input type="text" name="op1" id="workoutname" value="" /><br><br>
+          <label for="duration">Duration (in minutes)</label><br>
+          <input type="number" name="op3" id="duration" value="" /><br><br>
+          <label for="metvalue">MET value</label><br>
+          <input type="number" name="op2" id="metvalue" value="" /><br><br>
+          <input type="submit" name="custworkout" value="Submit"/>
+      </form>
+    </div>
 </body>
 </html>

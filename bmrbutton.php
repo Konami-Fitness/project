@@ -2,8 +2,8 @@
 		session_start();
 
 	$servername = "localhost";
-	$username = "root";
-	$password = "websys7";
+	$username = "user";
+	$password = "itws";
 
 	// Create connection
 	try {
@@ -58,6 +58,15 @@
 	      $calsBurned = metToCalsBurned($q2->fetchAll()[0]['mets'],$row['duration'],$w);
 	      $sum = $calsBurned + $sum;
 	    }
+
+	    //Add in calories burned from custom workouts
+	    $sq3 = 'SELECT * FROM customworkouts WHERE userid=' . $_SESSION['userid'];
+	    $q3 = $dbconn->query($sq3);
+	    foreach($q3 as $row) {
+	    	$sum = $sum + $row['calories'];
+	    }
+
+
 	    return $sum;
 	}
 
@@ -238,7 +247,6 @@ $progress = 65;
 	      ?>
 			</div>
 			<br>
-
 			<div id = "macroNeeds">
 				<li>Your Macro Requirements: </li>
 				<li>Protein: <?php echo round(totalProteins($dbconn,$new_weight),2) . " g"   ?></li>
@@ -259,6 +267,13 @@ $progress = 65;
 	        <input type="submit" class="button" name="button6" value="Current Net Calories From Workouts and Food Intake (includes maintenance calories at rest)"/>
 	    	</div>
 	    </form>
+	    <div class="clear"></div>
+	    <div id="metinfo">
+	    	<p>
+				Konami Fitness uses MET values for different exercises to calculate how many calories you burn based on your level of physical activity. One MET is defined as 1 kcal/kg/hour and is roughly equivalent to the energy cost of sitting quietly. More intense activities will have higher MET values and will therefore burn more calories. For a frame of reference playing soccer has a MET of 10 and running a mile in 4.3 minutes has a MET value of 23.
+			</p>
+			</div><br>
 		</div>
+
   </body>
 </html>

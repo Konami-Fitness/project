@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2020 at 09:11 AM
+-- Generation Time: Dec 12, 2020 at 04:03 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -903,6 +903,19 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customworkouts`
+--
+
+CREATE TABLE `customworkouts` (
+  `customwrktid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `calories` int(11) NOT NULL,
+  `time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `exercise`
 --
 
@@ -1070,6 +1083,13 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `customworkouts`
+--
+ALTER TABLE `customworkouts`
+  ADD PRIMARY KEY (`customwrktid`),
+  ADD KEY `fk_customworkout_user` (`userid`);
+
+--
 -- Indexes for table `exercise`
 --
 ALTER TABLE `exercise`
@@ -1138,10 +1158,16 @@ ALTER TABLE `usertoworkout`
 --
 
 --
+-- AUTO_INCREMENT for table `customworkouts`
+--
+ALTER TABLE `customworkouts`
+  MODIFY `customwrktid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -1152,6 +1178,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `activity`
   ADD CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
+
+--
+-- Constraints for table `customworkouts`
+--
+ALTER TABLE `customworkouts`
+  ADD CONSTRAINT `fk_customworkout_user` FOREIGN KEY (`userid`) REFERENCES `users` (`userID`);
 
 --
 -- Constraints for table `exercise`
